@@ -1,6 +1,6 @@
-[gd_scene load_steps=11 format=3 uid="uid://daaxo0hgxf57w"]
+[gd_scene load_steps=12 format=3 uid="uid://daaxo0hgxf57w"]
 
-[ext_resource type="Script" path="res://Scripts/Ice.gd" id="1_175kj"]
+[ext_resource type="Script" path="res://Scripts/Nonogram/Ice.gd" id="1_cg8q5"]
 [ext_resource type="Material" uid="uid://d2u1n3w4o8fkt" path="res://Materials/ice.material" id="2_34j4h"]
 [ext_resource type="Material" uid="uid://di6401h323n6t" path="res://Materials/ice_range_hover.material" id="3_pdlyf"]
 [ext_resource type="Material" uid="uid://ds6djvweorv7w" path="res://Materials/ice_hover.material" id="3_xmoqo"]
@@ -8,6 +8,7 @@
 [ext_resource type="Material" uid="uid://cfh60m5km0cer" path="res://Materials/ice_destroyed.material" id="6_ijo2v"]
 [ext_resource type="Texture2D" uid="uid://b165583d622e2" path="res://Sprites/Numbers/0.png" id="6_m1ftd"]
 [ext_resource type="Material" uid="uid://dypywgtm4dy2f" path="res://Materials/ice_destroyed_range.material" id="7_4tnnt"]
+[ext_resource type="Script" path="res://Scripts/Nonogram/IceBobbing.gd" id="8_fxfo4"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_ltcls"]
 size = Vector3(1, 0.3, 1)
@@ -16,7 +17,7 @@ size = Vector3(1, 0.3, 1)
 size = Vector3(1, 0.3, 1)
 
 [node name="Ice" type="StaticBody3D"]
-script = ExtResource("1_175kj")
+script = ExtResource("1_cg8q5")
 ice_material = ExtResource("2_34j4h")
 ice_hover_material = ExtResource("3_xmoqo")
 ice_range_material = ExtResource("4_bsrcs")
@@ -27,6 +28,7 @@ ice_destroyed_range_material = ExtResource("7_4tnnt")
 [node name="IceShape" type="CSGBox3D" parent="."]
 material_override = ExtResource("2_34j4h")
 size = Vector3(1, 0.3, 1)
+script = ExtResource("8_fxfo4")
 
 [node name="IceCollision" type="CollisionShape3D" parent="."]
 shape = SubResource("BoxShape3D_ltcls")

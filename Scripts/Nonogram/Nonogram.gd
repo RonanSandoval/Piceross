@@ -5,8 +5,8 @@ extends Node
 var nonogram : Array = [[]]
 var answer : Array = [[]]
 
-const NONOGRAM_HEIGHT : int = 10
-const NONOGRAM_WIDTH : int = 10
+@export var NONOGRAM_HEIGHT : int
+@export var NONOGRAM_WIDTH : int 
 
 func _ready():
 	prepare_nonogram()

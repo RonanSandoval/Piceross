@@ -1,0 +1,115 @@
+[gd_scene load_steps=3 format=3 uid="uid://dmfsxcohucpdk"]
+
+[ext_resource type="Texture2D" uid="uid://cpue57hbjk104" path="res://icon.svg" id="1_kcs8t"]
+[ext_resource type="Script" path="res://Scripts/UI/UIButton.gd" id="2_p8mrl"]
+
+[node name="LevelSelect" type="Node3D"]
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="Levels" type="GridContainer" parent="CanvasLayer"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -178.0
+offset_top = -64.0
+offset_right = 178.0
+offset_bottom = 64.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/h_separation = 20
+theme_override_constants/v_separation = 20
+columns = 5
+
+[node name="Level1" type="TextureRect" parent="CanvasLayer/Levels"]
+layout_mode = 2
+texture = ExtResource("1_kcs8t")
+script = ExtResource("2_p8mrl")
+to_scene = "res://Scenes/Main.tscn"
+
+[node name="Level2" type="TextureRect" parent="CanvasLayer/Levels"]
+layout_mode = 2
+texture = ExtResource("1_kcs8t")
+script = ExtResource("2_p8mrl")
+to_scene = "res://Scenes/Main.tscn"
+
+[node name="Level3" type="TextureRect" parent="CanvasLayer/Levels"]
+layout_mode = 2
+texture = ExtResource("1_kcs8t")
+script = ExtResource("2_p8mrl")
+to_scene = "res://Scenes/Main.tscn"
+
+[node name="Level4" type="TextureRect" parent="CanvasLayer/Levels"]
+layout_mode = 2
+texture = ExtResource("1_kcs8t")
+script = ExtResource("2_p8mrl")
+to_scene = "res://Scenes/Main.tscn"
+
+[node name="Level5" type="TextureRect" parent="CanvasLayer/Levels"]
+layout_mode = 2
+texture = ExtResource("1_kcs8t")
+script = ExtResource("2_p8mrl")
+to_scene = "res://Scenes/Main.tscn"
+
+[node name="Level6" type="TextureRect" parent="CanvasLayer/Levels"]
+layout_mode = 2
+texture = ExtResource("1_kcs8t")
+script = ExtResource("2_p8mrl")
+to_scene = "res://Scenes/Main.tscn"
+
+[node name="Level7" type="TextureRect" parent="CanvasLayer/Levels"]
+layout_mode = 2
+texture = ExtResource("1_kcs8t")
+script = ExtResource("2_p8mrl")
+to_scene = "res://Scenes/Main.tscn"
+
+[node name="Level8" type="TextureRect" parent="CanvasLayer/Levels"]
+layout_mode = 2
+texture = ExtResource("1_kcs8t")
+script = ExtResource("2_p8mrl")
+to_scene = "res://Scenes/Main.tscn"
+
+[node name="Level9" type="TextureRect" parent="CanvasLayer/Levels"]
+layout_mode = 2
+texture = ExtResource("1_kcs8t")
+script = ExtResource("2_p8mrl")
+to_scene = "res://Scenes/Main.tscn"
+
+[node name="Level10" type="TextureRect" parent="CanvasLayer/Levels"]
+layout_mode = 2
+texture = ExtResource("1_kcs8t")
+script = ExtResource("2_p8mrl")
+to_scene = "res://Scenes/Main.tscn"
+
+[connection signal="gui_input" from="CanvasLayer/Levels/Level1" to="CanvasLayer/Levels/Level1" method="_on_gui_input"]
+[connection signal="mouse_entered" from="CanvasLayer/Levels/Level1" to="CanvasLayer/Levels/Level1" method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="CanvasLayer/Levels/Level1" to="CanvasLayer/Levels/Level1" method="_on_mouse_exited"]
+[connection signal="gui_input" from="CanvasLayer/Levels/Level2" to="CanvasLayer/Levels/Level2" method="_on_gui_input"]
+[connection signal="mouse_entered" from="CanvasLayer/Levels/Level2" to="CanvasLayer/Levels/Level2" method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="CanvasLayer/Levels/Level2" to="CanvasLayer/Levels/Level2" method="_on_mouse_exited"]
+[connection signal="gui_input" from="CanvasLayer/Levels/Level3" to="CanvasLayer/Levels/Level3" method="_on_gui_input"]
+[connection signal="mouse_entered" from="CanvasLayer/Levels/Level3" to="CanvasLayer/Levels/Level3" method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="CanvasLayer/Levels/Level3" to="CanvasLayer/Levels/Level3" method="_on_mouse_exited"]
+[connection signal="gui_input" from="CanvasLayer/Levels/Level4" to="CanvasLayer/Levels/Level4" method="_on_gui_input"]
+[connection signal="mouse_entered" from="CanvasLayer/Levels/Level4" to="CanvasLayer/Levels/Level4" method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="CanvasLayer/Levels/Level4" to="CanvasLayer/Levels/Level4" method="_on_mouse_exited"]
+[connection signal="gui_input" from="CanvasLayer/Levels/Level5" to="CanvasLayer/Levels/Level5" method="_on_gui_input"]
+[connection signal="mouse_entered" from="CanvasLayer/Levels/Level5" to="CanvasLayer/Levels/Level5" method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="CanvasLayer/Levels/Level5" to="CanvasLayer/Levels/Level5" method="_on_mouse_exited"]
+[connection signal="gui_input" from="CanvasLayer/Levels/Level6" to="CanvasLayer/Levels/Level6" method="_on_gui_input"]
+[connection signal="mouse_entered" from="CanvasLayer/Levels/Level6" to="CanvasLayer/Levels/Level6" method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="CanvasLayer/Levels/Level6" to="CanvasLayer/Levels/Level6" method="_on_mouse_exited"]
+[connection signal="gui_input" from="CanvasLayer/Levels/Level7" to="CanvasLayer/Levels/Level7" method="_on_gui_input"]
+[connection signal="mouse_entered" from="CanvasLayer/Levels/Level7" to="CanvasLayer/Levels/Level7" method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="CanvasLayer/Levels/Level7" to="CanvasLayer/Levels/Level7" method="_on_mouse_exited"]
+[connection signal="gui_input" from="CanvasLayer/Levels/Level8" to="CanvasLayer/Levels/Level8" method="_on_gui_input"]
+[connection signal="mouse_entered" from="CanvasLayer/Levels/Level8" to="CanvasLayer/Levels/Level8" method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="CanvasLayer/Levels/Level8" to="CanvasLayer/Levels/Level8" method="_on_mouse_exited"]
+[connection signal="gui_input" from="CanvasLayer/Levels/Level9" to="CanvasLayer/Levels/Level9" method="_on_gui_input"]
+[connection signal="mouse_entered" from="CanvasLayer/Levels/Level9" to="CanvasLayer/Levels/Level9" method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="CanvasLayer/Levels/Level9" to="CanvasLayer/Levels/Level9" method="_on_mouse_exited"]
+[connection signal="gui_input" from="CanvasLayer/Levels/Level10" to="CanvasLayer/Levels/Level10" method="_on_gui_input"]
+[connection signal="mouse_entered" from="CanvasLayer/Levels/Level10" to="CanvasLayer/Levels/Level10" method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="CanvasLayer/Levels/Level10" to="CanvasLayer/Levels/Level10" method="_on_mouse_exited"]

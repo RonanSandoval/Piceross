@@ -1,11 +1,10 @@
-[gd_scene load_steps=22 format=3 uid="uid://cjdjohub1xatm"]
+[gd_scene load_steps=24 format=3 uid="uid://cjdjohub1xatm"]
 
-[ext_resource type="Script" path="res://Scripts/IceSpawner.gd" id="1_npolv"]
-[ext_resource type="Script" path="res://Scripts/Nonogram.gd" id="1_rvlve"]
-[ext_resource type="PackedScene" uid="uid://daaxo0hgxf57w" path="res://Scenes/Prefabs/ice.tscn" id="3_v3s5t"]
+[ext_resource type="Script" path="res://Scripts/Nonogram/Nonogram.gd" id="1_mvrnd"]
+[ext_resource type="Script" path="res://Scripts/Nonogram/IceSpawner.gd" id="2_mttt7"]
+[ext_resource type="Script" path="res://Scripts/Nonogram/HintSpawner.gd" id="3_ldy71"]
 [ext_resource type="Texture2D" uid="uid://cpue57hbjk104" path="res://icon.svg" id="4_kfhe6"]
 [ext_resource type="Script" path="res://Scripts/Camera.gd" id="4_n7eex"]
-[ext_resource type="Script" path="res://Scripts/HintSpawner.gd" id="4_qm8e2"]
 [ext_resource type="Texture2D" uid="uid://b165583d622e2" path="res://Sprites/Numbers/0.png" id="5_g0xow"]
 [ext_resource type="Script" path="res://Scripts/Player.gd" id="5_j1ucf"]
 [ext_resource type="Texture2D" uid="uid://cbp36fb1pcyoo" path="res://Sprites/Numbers/1.png" id="6_c3mlh"]
@@ -19,6 +18,9 @@
 [ext_resource type="Texture2D" uid="uid://biy2i1uygt076" path="res://Sprites/Numbers/7.png" id="12_dpw67"]
 [ext_resource type="Texture2D" uid="uid://dlx60sgic260i" path="res://Sprites/Numbers/8.png" id="13_itvdc"]
 [ext_resource type="Texture2D" uid="uid://bcwdqvs00dvsg" path="res://Sprites/Numbers/10.png" id="15_fb1jt"]
+[ext_resource type="Script" path="res://Scripts/UI/Lives.gd" id="19_htdvy"]
+[ext_resource type="Script" path="res://Scripts/UI/UIButton.gd" id="20_8xe7x"]
+[ext_resource type="Script" path="res://Scripts/UI/ConditionalUI.gd" id="20_xnehs"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_6d0ho"]
 size = Vector3(1, 1, 0.5)
@@ -29,15 +31,15 @@ size = Vector3(2.3, 1, 2.3)
 [node name="Node3D" type="Node3D"]
 
 [node name="Nonogram" type="Node" parent="."]
-script = ExtResource("1_rvlve")
+script = ExtResource("1_mvrnd")
+NONOGRAM_HEIGHT = 6
+NONOGRAM_WIDTH = 6
 
 [node name="IceSpawner" type="Node" parent="Nonogram"]
-script = ExtResource("1_npolv")
-
-[node name="Ice" parent="Nonogram/IceSpawner" instance=ExtResource("3_v3s5t")]
+script = ExtResource("2_mttt7")
 
 [node name="Hints" type="Node" parent="Nonogram"]
-script = ExtResource("4_qm8e2")
+script = ExtResource("3_ldy71")
 hint_sprites = Array[Texture]([ExtResource("5_g0xow"), ExtResource("6_c3mlh"), ExtResource("7_7wbns"), ExtResource("8_hk2kh"), ExtResource("9_d3igq"), ExtResource("10_7vlo4"), ExtResource("11_ai2e4"), ExtResource("12_dpw67"), ExtResource("13_itvdc"), ExtResource("8_8svtn"), ExtResource("15_fb1jt")])
 
 [node name="Camera3D" type="Camera3D" parent="." node_paths=PackedStringArray("player_node")]
@@ -68,5 +70,145 @@ shape = SubResource("BoxShape3D_8jdp3")
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, -0.496823, 0.867852, 0, -0.867852, -0.496823, 5, 5.1723, 10.3439)
 
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="Lives" type="HBoxContainer" parent="CanvasLayer"]
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_left = 10.0
+offset_top = -75.0
+offset_right = 346.0
+offset_bottom = -11.0
+grow_vertical = 0
+script = ExtResource("19_htdvy")
+
+[node name="Life" type="TextureRect" parent="CanvasLayer/Lives"]
+layout_mode = 2
+texture = ExtResource("4_kfhe6")
+expand_mode = 2
+
+[node name="Life2" type="TextureRect" parent="CanvasLayer/Lives"]
+layout_mode = 2
+texture = ExtResource("4_kfhe6")
+expand_mode = 2
+
+[node name="Life3" type="TextureRect" parent="CanvasLayer/Lives"]
+layout_mode = 2
+texture = ExtResource("4_kfhe6")
+expand_mode = 2
+
+[node name="Life4" type="TextureRect" parent="CanvasLayer/Lives"]
+layout_mode = 2
+texture = ExtResource("4_kfhe6")
+expand_mode = 2
+
+[node name="Life5" type="TextureRect" parent="CanvasLayer/Lives"]
+layout_mode = 2
+texture = ExtResource("4_kfhe6")
+expand_mode = 2
+
+[node name="Freezeray" type="TextureRect" parent="CanvasLayer"]
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -155.0
+offset_top = -154.0
+offset_right = -19.0
+offset_bottom = -18.0
+grow_horizontal = 0
+grow_vertical = 0
+texture = ExtResource("4_kfhe6")
+expand_mode = 1
+
+[node name="WinUI" type="Control" parent="CanvasLayer"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("20_xnehs")
+my_state = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="CanvasLayer/WinUI"]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -178.0
+offset_top = -169.0
+offset_right = 178.0
+offset_bottom = -41.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_constants/separation = 100
+
+[node name="LevelSelect" type="TextureRect" parent="CanvasLayer/WinUI/HBoxContainer"]
+layout_mode = 2
+texture = ExtResource("4_kfhe6")
+script = ExtResource("20_8xe7x")
+to_scene = "res://Scenes/LevelSelect.tscn"
+
+[node name="NextLevel" type="TextureRect" parent="CanvasLayer/WinUI/HBoxContainer"]
+layout_mode = 2
+texture = ExtResource("4_kfhe6")
+script = ExtResource("20_8xe7x")
+to_scene = "res://Scenes/Main.tscn"
+
+[node name="LoseUI" type="Control" parent="CanvasLayer"]
+visible = false
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("20_xnehs")
+my_state = 3
+
+[node name="HBoxContainer" type="HBoxContainer" parent="CanvasLayer/LoseUI"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -64.0
+offset_top = -64.0
+offset_right = 64.0
+offset_bottom = 64.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 100
+
+[node name="LevelSelect" type="TextureRect" parent="CanvasLayer/LoseUI/HBoxContainer"]
+layout_mode = 2
+texture = ExtResource("4_kfhe6")
+script = ExtResource("20_8xe7x")
+to_scene = "res://Scenes/LevelSelect.tscn"
+
+[node name="RestartLevel" type="TextureRect" parent="CanvasLayer/LoseUI/HBoxContainer"]
+layout_mode = 2
+texture = ExtResource("4_kfhe6")
+script = ExtResource("20_8xe7x")
+to_scene = "res://Scenes/Main.tscn"
+
 [connection signal="area_entered" from="Player/Range" to="Player/Range" method="_on_area_entered"]
 [connection signal="area_exited" from="Player/Range" to="Player/Range" method="_on_area_exited"]
+[connection signal="gui_input" from="CanvasLayer/WinUI/HBoxContainer/LevelSelect" to="CanvasLayer/WinUI/HBoxContainer/LevelSelect" method="_on_gui_input"]
+[connection signal="mouse_entered" from="CanvasLayer/WinUI/HBoxContainer/LevelSelect" to="CanvasLayer/WinUI/HBoxContainer/LevelSelect" method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="CanvasLayer/WinUI/HBoxContainer/LevelSelect" to="CanvasLayer/WinUI/HBoxContainer/LevelSelect" method="_on_mouse_exited"]
+[connection signal="gui_input" from="CanvasLayer/WinUI/HBoxContainer/NextLevel" to="CanvasLayer/WinUI/HBoxContainer/NextLevel" method="_on_gui_input"]
+[connection signal="mouse_entered" from="CanvasLayer/WinUI/HBoxContainer/NextLevel" to="CanvasLayer/WinUI/HBoxContainer/NextLevel" method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="CanvasLayer/WinUI/HBoxContainer/NextLevel" to="CanvasLayer/WinUI/HBoxContainer/NextLevel" method="_on_mouse_exited"]
+[connection signal="gui_input" from="CanvasLayer/LoseUI/HBoxContainer/LevelSelect" to="CanvasLayer/LoseUI/HBoxContainer/LevelSelect" method="_on_gui_input"]
+[connection signal="mouse_entered" from="CanvasLayer/LoseUI/HBoxContainer/LevelSelect" to="CanvasLayer/LoseUI/HBoxContainer/LevelSelect" method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="CanvasLayer/LoseUI/HBoxContainer/LevelSelect" to="CanvasLayer/LoseUI/HBoxContainer/LevelSelect" method="_on_mouse_exited"]
+[connection signal="gui_input" from="CanvasLayer/LoseUI/HBoxContainer/RestartLevel" to="CanvasLayer/LoseUI/HBoxContainer/RestartLevel" method="_on_gui_input"]
+[connection signal="mouse_entered" from="CanvasLayer/LoseUI/HBoxContainer/RestartLevel" to="CanvasLayer/LoseUI/HBoxContainer/RestartLevel" method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="CanvasLayer/LoseUI/HBoxContainer/RestartLevel" to="CanvasLayer/LoseUI/HBoxContainer/RestartLevel" method="_on_mouse_exited"]
