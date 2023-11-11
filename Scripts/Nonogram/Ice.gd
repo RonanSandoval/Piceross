@@ -17,7 +17,7 @@ var my_x : int
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	pass # Replace with function body.
+	get_parent().get_parent().get_parent().find_child("Freezeray").connect("freeze", on_freeze)
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -42,12 +42,13 @@ func _on_input_event(camera, event, position, normal, shape_idx):
 			$Marker.visible = true
 		
 
-func _input(event):
-	if event.is_action_pressed("freeze") and in_range and destroyed:
+func on_freeze():
+	if in_range and destroyed:
 		destroyed = false
 		get_parent().get_parent().unbreak_slot(my_x, my_y)
 		$IceCollision.disabled = false
 		$IceShape.material_override = ice_range_material
+		
 
 func _on_mouse_entered():
 	if not destroyed:

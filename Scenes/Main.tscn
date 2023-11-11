@@ -1,4 +1,4 @@
-[gd_scene load_steps=24 format=3 uid="uid://cjdjohub1xatm"]
+[gd_scene load_steps=25 format=3 uid="uid://cjdjohub1xatm"]
 
 [ext_resource type="Script" path="res://Scripts/Nonogram/Nonogram.gd" id="1_mvrnd"]
 [ext_resource type="Script" path="res://Scripts/Nonogram/IceSpawner.gd" id="2_mttt7"]
@@ -19,6 +19,7 @@
 [ext_resource type="Texture2D" uid="uid://dlx60sgic260i" path="res://Sprites/Numbers/8.png" id="13_itvdc"]
 [ext_resource type="Texture2D" uid="uid://bcwdqvs00dvsg" path="res://Sprites/Numbers/10.png" id="15_fb1jt"]
 [ext_resource type="Script" path="res://Scripts/UI/Lives.gd" id="19_htdvy"]
+[ext_resource type="Script" path="res://Scripts/UI/Freezeray.gd" id="20_4xr6i"]
 [ext_resource type="Script" path="res://Scripts/UI/UIButton.gd" id="20_8xe7x"]
 [ext_resource type="Script" path="res://Scripts/UI/ConditionalUI.gd" id="20_xnehs"]
 
@@ -122,6 +123,18 @@ grow_horizontal = 0
 grow_vertical = 0
 texture = ExtResource("4_kfhe6")
 expand_mode = 1
+script = ExtResource("20_4xr6i")
+
+[node name="ProgressBar" type="ProgressBar" parent="CanvasLayer/Freezeray"]
+layout_mode = 0
+offset_left = -22.0
+offset_top = 134.0
+offset_right = 111.0
+offset_bottom = 151.0
+rotation = -1.5708
+max_value = 2.0
+value = 2.0
+show_percentage = false
 
 [node name="WinUI" type="Control" parent="CanvasLayer"]
 layout_mode = 3
@@ -200,6 +213,9 @@ to_scene = "res://Scenes/Main.tscn"
 
 [connection signal="area_entered" from="Player/Range" to="Player/Range" method="_on_area_entered"]
 [connection signal="area_exited" from="Player/Range" to="Player/Range" method="_on_area_exited"]
+[connection signal="gui_input" from="CanvasLayer/Freezeray" to="CanvasLayer/Freezeray" method="_on_gui_input"]
+[connection signal="mouse_entered" from="CanvasLayer/Freezeray" to="CanvasLayer/Freezeray" method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="CanvasLayer/Freezeray" to="CanvasLayer/Freezeray" method="_on_mouse_exited"]
 [connection signal="gui_input" from="CanvasLayer/WinUI/HBoxContainer/LevelSelect" to="CanvasLayer/WinUI/HBoxContainer/LevelSelect" method="_on_gui_input"]
 [connection signal="mouse_entered" from="CanvasLayer/WinUI/HBoxContainer/LevelSelect" to="CanvasLayer/WinUI/HBoxContainer/LevelSelect" method="_on_mouse_entered"]
 [connection signal="mouse_exited" from="CanvasLayer/WinUI/HBoxContainer/LevelSelect" to="CanvasLayer/WinUI/HBoxContainer/LevelSelect" method="_on_mouse_exited"]
