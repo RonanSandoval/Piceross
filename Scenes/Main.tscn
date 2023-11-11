@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=3 uid="uid://cjdjohub1xatm"]
+
+[ext_resource type="Script" path="res://Scripts/Nonogram.gd" id="1_rvlve"]
+
+[node name="Node3D" type="Node3D"]
+
+[node name="Nonogram" type="Node" parent="."]
+script = ExtResource("1_rvlve")
