@@ -1,0 +1,7 @@
+[gd_scene load_steps=2 format=3 uid="uid://camiv3upcaeex"]
+
+[ext_resource type="Texture2D" uid="uid://ccilhlw6470my" path="res://Sprites/Numbers/9.png" id="1_1y4jl"]
+
+[node name="Hint" type="Sprite3D"]
+transform = Transform3D(0.7, 0, 0, 0, 0.494975, 0.494975, 0, -0.494975, 0.494975, -1.5, 0.25, 0)
+texture = ExtResource("1_1y4jl")

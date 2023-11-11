@@ -1,5 +1,6 @@
 extends CharacterBody3D
 
+var lives : int = 5
 
 const SPEED = 5.0
 const JUMP_VELOCITY = 4.5
@@ -30,7 +31,9 @@ func _physics_process(delta):
 		
 	#fell
 	if position.y < -1:
+		lives -= 1
 		reset_position()
+		velocity.y = 0
 
 	move_and_slide()
 

@@ -8,8 +8,13 @@ var answer : Array = [[]]
 const NONOGRAM_HEIGHT : int = 10
 const NONOGRAM_WIDTH : int = 10
 
-# Called when the node enters the scene tree for the first time.
 func _ready():
+	prepare_nonogram()
+	$IceSpawner.reset_board()
+	$Hints.spawn_hints()
+
+# Called when the node enters the scene tree for the first time.
+func prepare_nonogram():
 	reset_nonogram()
 	read_puzzle_json()
 
@@ -23,15 +28,21 @@ func reset_nonogram() -> void:
 	inner_array.fill(0)
 	
 	nonogram.resize(NONOGRAM_HEIGHT)
-	nonogram.fill(inner_array)
+	for index in nonogram.size():
+		nonogram[index] = inner_array.duplicate()
 	
 func break_slot(x : int, y : int) -> void:
 	nonogram[y][x] = 1
+	check_puzzle()
+
+func unbreak_slot(x : int, y : int) -> void:
+	nonogram[y][x] = 0
+	check_puzzle()
 	
 func mark_slot(x : int, y : int) -> void:
 	nonogram[y][x] = 2
 
-func unnark_slot(x : int, y : int) -> void:
+func unmark_slot(x : int, y : int) -> void:
 	if nonogram[y][x] == 2:
 		nonogram[y][x] = 1
 	
@@ -58,6 +69,9 @@ func get_hints(type : String, index : int) -> Array:
 	if curr_count > 0:
 		hints.append(curr_count)
 	
+	if hints.size() == 0:
+		hints.append(0)
+	
 	return hints
 	
 func read_puzzle_json() -> void:
@@ -67,9 +81,12 @@ func read_puzzle_json() -> void:
 	var finish = json.parse_string(content)
 	answer = finish["nonograms"][puzzle_index]
 
-func check_puzzle() -> bool:
+func check_puzzle():
 	for y in range(NONOGRAM_HEIGHT):
 		for x in range(NONOGRAM_WIDTH):
-			if nonogram[y][x] != answer[y][x]:
+			if answer[y][x] == 0 and not (nonogram[y][x] == 0 or nonogram[y][x] == 2):
 				return false
+			if answer[y][x] == 1 and not nonogram[y][x] == 1:
+				return false
+	GameManager.set_game_state(GameManager.GameState.Win)
 	return true	

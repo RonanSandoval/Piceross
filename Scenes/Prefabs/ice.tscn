@@ -1,9 +1,13 @@
-[gd_scene load_steps=7 format=3 uid="uid://daaxo0hgxf57w"]
+[gd_scene load_steps=11 format=3 uid="uid://daaxo0hgxf57w"]
 
 [ext_resource type="Script" path="res://Scripts/Ice.gd" id="1_175kj"]
 [ext_resource type="Material" uid="uid://d2u1n3w4o8fkt" path="res://Materials/ice.material" id="2_34j4h"]
-[ext_resource type="Material" uid="uid://di6401h323n6t" path="res://Materials/ice_hover.material" id="3_xmoqo"]
+[ext_resource type="Material" uid="uid://di6401h323n6t" path="res://Materials/ice_range_hover.material" id="3_pdlyf"]
+[ext_resource type="Material" uid="uid://ds6djvweorv7w" path="res://Materials/ice_hover.material" id="3_xmoqo"]
 [ext_resource type="Material" uid="uid://unfba3tkuo6d" path="res://Materials/ice_range.material" id="4_bsrcs"]
+[ext_resource type="Material" uid="uid://cfh60m5km0cer" path="res://Materials/ice_destroyed.material" id="6_ijo2v"]
+[ext_resource type="Texture2D" uid="uid://b165583d622e2" path="res://Sprites/Numbers/0.png" id="6_m1ftd"]
+[ext_resource type="Material" uid="uid://dypywgtm4dy2f" path="res://Materials/ice_destroyed_range.material" id="7_4tnnt"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_ltcls"]
 size = Vector3(1, 0.3, 1)
@@ -16,6 +20,9 @@ script = ExtResource("1_175kj")
 ice_material = ExtResource("2_34j4h")
 ice_hover_material = ExtResource("3_xmoqo")
 ice_range_material = ExtResource("4_bsrcs")
+ice_range_hover_material = ExtResource("3_pdlyf")
+ice_destroyed_material = ExtResource("6_ijo2v")
+ice_destroyed_range_material = ExtResource("7_4tnnt")
 
 [node name="IceShape" type="CSGBox3D" parent="."]
 material_override = ExtResource("2_34j4h")
@@ -28,6 +35,11 @@ shape = SubResource("BoxShape3D_ltcls")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="IceHit"]
 shape = SubResource("BoxShape3D_gcdo1")
+
+[node name="Marker" type="Sprite3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 0.16, 0)
+visible = false
+texture = ExtResource("6_m1ftd")
 
 [connection signal="input_event" from="." to="." method="_on_input_event"]
 [connection signal="mouse_entered" from="." to="." method="_on_mouse_entered"]
