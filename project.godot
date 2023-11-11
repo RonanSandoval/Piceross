@@ -19,6 +19,7 @@ config/icon="res://icon.svg"
 
 GameManager="*res://Scripts/Singletons/GameManager.gd"
 SceneManager="*res://Scenes/Managers/SceneManager.tscn"
+MusicManager="*res://Scenes/Managers/MusicManager.tscn"
 
 [input]
 

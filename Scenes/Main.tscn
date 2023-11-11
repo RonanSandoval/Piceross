@@ -1,4 +1,4 @@
-[gd_scene load_steps=25 format=3 uid="uid://cjdjohub1xatm"]
+[gd_scene load_steps=33 format=3 uid="uid://cjdjohub1xatm"]
 
 [ext_resource type="Script" path="res://Scripts/Nonogram/Nonogram.gd" id="1_mvrnd"]
 [ext_resource type="Script" path="res://Scripts/Nonogram/IceSpawner.gd" id="2_mttt7"]
@@ -22,12 +22,59 @@
 [ext_resource type="Script" path="res://Scripts/UI/Freezeray.gd" id="20_4xr6i"]
 [ext_resource type="Script" path="res://Scripts/UI/UIButton.gd" id="20_8xe7x"]
 [ext_resource type="Script" path="res://Scripts/UI/ConditionalUI.gd" id="20_xnehs"]
+[ext_resource type="Shader" path="res://Shaders/water.gdshader" id="23_blv27"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_6d0ho"]
 size = Vector3(1, 1, 0.5)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_8jdp3"]
 size = Vector3(2.3, 1, 2.3)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_g2kl2"]
+render_priority = 0
+shader = ExtResource("23_blv27")
+shader_parameter/OCTAVE = 6
+shader_parameter/mulscale = 5.0
+shader_parameter/height = 0.6
+shader_parameter/tide = 0.1
+shader_parameter/foamthickness = 0.1
+shader_parameter/timescale = 0.3
+shader_parameter/waterdeep = 0.3
+shader_parameter/WATER_COL = Color(0, 0.443137, 0.678431, 1)
+shader_parameter/WATER2_COL = Color(0, 0.4, 0.615686, 1)
+shader_parameter/FOAM_COL = Color(0, 0.529412, 0.807843, 1)
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_sr2eo"]
+lightmap_size_hint = Vector2i(252, 252)
+material = SubResource("ShaderMaterial_g2kl2")
+uv2_padding = 1.07
+size = Vector2(50, 50)
+
+[sub_resource type="Curve" id="Curve_ylk3t"]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(0.640719, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 3
+
+[sub_resource type="CurveTexture" id="CurveTexture_lstgy"]
+curve = SubResource("Curve_ylk3t")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_pnm7h"]
+emission_shape = 3
+emission_box_extents = Vector3(20, 0.1, 20)
+gravity = Vector3(0, -1, 0)
+scale_curve = SubResource("CurveTexture_lstgy")
+turbulence_enabled = true
+turbulence_noise_strength = 0.3
+turbulence_noise_scale = 2.0
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_81tdd"]
+emission_enabled = true
+emission = Color(1, 1, 1, 1)
+emission_energy_multiplier = 2.2
+
+[sub_resource type="SphereMesh" id="SphereMesh_y3ojn"]
+material = SubResource("StandardMaterial3D_81tdd")
+radius = 0.03
+height = 0.03
 
 [node name="Node3D" type="Node3D"]
 
@@ -210,6 +257,17 @@ layout_mode = 2
 texture = ExtResource("4_kfhe6")
 script = ExtResource("20_8xe7x")
 to_scene = "res://Scenes/Main.tscn"
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+mesh = SubResource("PlaneMesh_sr2eo")
+
+[node name="GPUParticles3D" type="GPUParticles3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 5.46135, 0)
+amount = 400
+lifetime = 20.0
+preprocess = 100.0
+process_material = SubResource("ParticleProcessMaterial_pnm7h")
+draw_pass_1 = SubResource("SphereMesh_y3ojn")
 
 [connection signal="area_entered" from="Player/Range" to="Player/Range" method="_on_area_entered"]
 [connection signal="area_exited" from="Player/Range" to="Player/Range" method="_on_area_exited"]

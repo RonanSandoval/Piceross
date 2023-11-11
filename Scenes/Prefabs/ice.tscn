@@ -6,9 +6,9 @@
 [ext_resource type="Material" uid="uid://ds6djvweorv7w" path="res://Materials/ice_hover.material" id="3_xmoqo"]
 [ext_resource type="Material" uid="uid://unfba3tkuo6d" path="res://Materials/ice_range.material" id="4_bsrcs"]
 [ext_resource type="Material" uid="uid://cfh60m5km0cer" path="res://Materials/ice_destroyed.material" id="6_ijo2v"]
-[ext_resource type="Texture2D" uid="uid://b165583d622e2" path="res://Sprites/Numbers/0.png" id="6_m1ftd"]
 [ext_resource type="Material" uid="uid://dypywgtm4dy2f" path="res://Materials/ice_destroyed_range.material" id="7_4tnnt"]
 [ext_resource type="Script" path="res://Scripts/Nonogram/IceBobbing.gd" id="8_fxfo4"]
+[ext_resource type="Texture2D" uid="uid://c6f7ilpfjib3i" path="res://Sprites/cross.png" id="9_svpcf"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_ltcls"]
 size = Vector3(1, 0.3, 1)
@@ -41,7 +41,8 @@ shape = SubResource("BoxShape3D_gcdo1")
 [node name="Marker" type="Sprite3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 0.16, 0)
 visible = false
-texture = ExtResource("6_m1ftd")
+modulate = Color(1, 1, 1, 0.627451)
+texture = ExtResource("9_svpcf")
 
 [connection signal="input_event" from="." to="." method="_on_input_event"]
 [connection signal="mouse_entered" from="." to="." method="_on_mouse_entered"]
