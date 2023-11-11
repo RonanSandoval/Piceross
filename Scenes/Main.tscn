@@ -1,8 +1,62 @@
-[gd_scene load_steps=2 format=3 uid="uid://cjdjohub1xatm"]
+[gd_scene load_steps=10 format=3 uid="uid://cjdjohub1xatm"]
 
+[ext_resource type="Script" path="res://Scripts/IceSpawner.gd" id="1_npolv"]
 [ext_resource type="Script" path="res://Scripts/Nonogram.gd" id="1_rvlve"]
+[ext_resource type="PackedScene" uid="uid://daaxo0hgxf57w" path="res://Scenes/Prefabs/ice.tscn" id="3_v3s5t"]
+[ext_resource type="Texture2D" uid="uid://cpue57hbjk104" path="res://icon.svg" id="4_kfhe6"]
+[ext_resource type="Script" path="res://Scripts/Camera.gd" id="4_n7eex"]
+[ext_resource type="Script" path="res://Scripts/Player.gd" id="5_j1ucf"]
+[ext_resource type="Script" path="res://Scripts/PlayerRange.gd" id="7_nly7s"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_6d0ho"]
+size = Vector3(1, 1, 0.5)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_8jdp3"]
+size = Vector3(2.3, 1, 2.3)
 
 [node name="Node3D" type="Node3D"]
 
-[node name="Nonogram" type="Node" parent="."]
+[node name="IceSpawner" type="Node" parent="."]
+script = ExtResource("1_npolv")
+
+[node name="Nonogram" type="Node" parent="IceSpawner"]
 script = ExtResource("1_rvlve")
+
+[node name="Ice" parent="IceSpawner" instance=ExtResource("3_v3s5t")]
+
+[node name="Camera3D" type="Camera3D" parent="." node_paths=PackedStringArray("player_node")]
+transform = Transform3D(1, 0, 0, 0, 0.5, 0.866025, 0, -0.866025, 0.5, 5, 4, 12)
+script = ExtResource("4_n7eex")
+player_node = NodePath("../Player")
+
+[node name="Player" type="CharacterBody3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+input_ray_pickable = false
+script = ExtResource("5_j1ucf")
+
+[node name="PlayerSprite" type="Sprite3D" parent="Player"]
+transform = Transform3D(0.7, 0, 0, 0, 0.494975, 0.494975, 0, -0.494975, 0.494975, 0, 0, 0)
+texture = ExtResource("4_kfhe6")
+
+[node name="PlayerCollision" type="CollisionShape3D" parent="Player"]
+shape = SubResource("BoxShape3D_6d0ho")
+
+[node name="Range" type="Area3D" parent="Player"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.1, 0)
+input_ray_pickable = false
+script = ExtResource("7_nly7s")
+
+[node name="RangeBox" type="CollisionShape3D" parent="Player/Range"]
+shape = SubResource("BoxShape3D_8jdp3")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, -0.496823, 0.867852, 0, -0.867852, -0.496823, 5, 5.1723, 10.3439)
+
+[node name="Label" type="Label" parent="."]
+offset_right = 40.0
+offset_bottom = 23.0
+text = "Lalalala
+"
+
+[connection signal="area_entered" from="Player/Range" to="Player/Range" method="_on_area_entered"]
+[connection signal="area_exited" from="Player/Range" to="Player/Range" method="_on_area_exited"]

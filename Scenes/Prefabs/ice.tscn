@@ -1,0 +1,34 @@
+[gd_scene load_steps=7 format=3 uid="uid://daaxo0hgxf57w"]
+
+[ext_resource type="Script" path="res://Scripts/Ice.gd" id="1_175kj"]
+[ext_resource type="Material" uid="uid://d2u1n3w4o8fkt" path="res://Materials/ice.material" id="2_34j4h"]
+[ext_resource type="Material" uid="uid://di6401h323n6t" path="res://Materials/ice_hover.material" id="3_xmoqo"]
+[ext_resource type="Material" uid="uid://unfba3tkuo6d" path="res://Materials/ice_range.material" id="4_bsrcs"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_ltcls"]
+size = Vector3(1, 0.3, 1)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_gcdo1"]
+size = Vector3(1, 0.3, 1)
+
+[node name="Ice" type="StaticBody3D"]
+script = ExtResource("1_175kj")
+ice_material = ExtResource("2_34j4h")
+ice_hover_material = ExtResource("3_xmoqo")
+ice_range_material = ExtResource("4_bsrcs")
+
+[node name="IceShape" type="CSGBox3D" parent="."]
+material_override = ExtResource("2_34j4h")
+size = Vector3(1, 0.3, 1)
+
+[node name="IceCollision" type="CollisionShape3D" parent="."]
+shape = SubResource("BoxShape3D_ltcls")
+
+[node name="IceHit" type="Area3D" parent="."]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="IceHit"]
+shape = SubResource("BoxShape3D_gcdo1")
+
+[connection signal="input_event" from="." to="." method="_on_input_event"]
+[connection signal="mouse_entered" from="." to="." method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="." to="." method="_on_mouse_exited"]
