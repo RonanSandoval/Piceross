@@ -5,7 +5,7 @@ extends Node
 var spiker_scene : PackedScene = preload("res://Scenes/Prefabs/spiker.tscn")
 
 var current_wait : float
-var active : bool = false
+var active : bool = true
 
 var nonogram_node : Node
 
@@ -26,6 +26,7 @@ func _process(delta):
 
 func look_for_slot():
 	for index in range(50):
+		print('lookin')
 		var my_x = randi_range(0,9)
 		var my_z = randi_range(0,9)
 		if nonogram_node.get_slot(my_z, my_x) == 2:

@@ -10,6 +10,7 @@ var is_ready : bool = true
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	$ProgressBar.value = LOAD_TIME
+	material = null
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.

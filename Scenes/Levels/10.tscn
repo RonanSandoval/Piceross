@@ -409,7 +409,7 @@ draw_pass_1 = SubResource("SphereMesh_y3ojn")
 [node name="Enemies" type="Node" parent="."]
 
 [node name="Breaker" parent="Enemies" instance=ExtResource("36_cawoh")]
-WAIT_TIME = 15.0
+WAIT_TIME = 14.0
 
 [connection signal="area_entered" from="Player/Range" to="Player/Range" method="_on_area_entered"]
 [connection signal="area_exited" from="Player/Range" to="Player/Range" method="_on_area_exited"]

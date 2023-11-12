@@ -6,9 +6,11 @@ var total_pages : int
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	total_pages = $Pages.get_child_count()
+	await get_tree().create_timer(0.1).timeout
 	if total_pages > 0:
 		GameManager.set_game_state(GameManager.GameState.Tutorial)
 	else:
+		
 		GameManager.set_game_state(GameManager.GameState.Playing)
 		queue_free()
 	

@@ -212,6 +212,24 @@ layout_mode = 2
 texture = ExtResource("25_6atie")
 expand_mode = 2
 
+[node name="Life6" type="TextureRect" parent="CanvasLayer/GameUI/Lives"]
+material = ExtResource("24_tbi2u")
+layout_mode = 2
+texture = ExtResource("25_6atie")
+expand_mode = 2
+
+[node name="Life7" type="TextureRect" parent="CanvasLayer/GameUI/Lives"]
+material = ExtResource("24_tbi2u")
+layout_mode = 2
+texture = ExtResource("25_6atie")
+expand_mode = 2
+
+[node name="Life8" type="TextureRect" parent="CanvasLayer/GameUI/Lives"]
+material = ExtResource("24_tbi2u")
+layout_mode = 2
+texture = ExtResource("25_6atie")
+expand_mode = 2
+
 [node name="Freezeray" type="TextureRect" parent="CanvasLayer/GameUI"]
 material = ExtResource("24_tbi2u")
 layout_mode = 1

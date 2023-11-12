@@ -21,6 +21,10 @@ GameManager="*res://Scripts/Singletons/GameManager.gd"
 SceneManager="*res://Scenes/Managers/SceneManager.tscn"
 MusicManager="*res://Scenes/Managers/MusicManager.tscn"
 
+[display]
+
+window/size/resizable=false
+
 [input]
 
 break={

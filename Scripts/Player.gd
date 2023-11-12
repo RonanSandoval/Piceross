@@ -5,7 +5,7 @@ var game_width : int
 var game_height : int
 
 
-var lives : int = 5
+var lives : int = 8
 signal life_lost(lives_left)
 
 var dead : bool = false
