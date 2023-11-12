@@ -1,0 +1,27 @@
+[gd_scene load_steps=5 format=3 uid="uid://d3pe13e6t8y47"]
+
+[ext_resource type="Script" path="res://Scripts/SafetyBlock.gd" id="1_ffh8a"]
+[ext_resource type="Material" uid="uid://df6b1yhdmhruy" path="res://Materials/safety.material" id="8_wpthe"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_ltcls"]
+size = Vector3(1.5, 0.3, 1.5)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_yv7ho"]
+size = Vector3(1, 0.5, 1)
+
+[node name="SafetyBlock" type="StaticBody3D"]
+script = ExtResource("1_ffh8a")
+
+[node name="SafetyShape" type="CSGBox3D" parent="."]
+material_override = ExtResource("8_wpthe")
+size = Vector3(1.5, 0.3, 1.5)
+
+[node name="SafetyCollision" type="CollisionShape3D" parent="."]
+shape = SubResource("BoxShape3D_ltcls")
+
+[node name="SafetyHit" type="Area3D" parent="."]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="SafetyHit"]
+shape = SubResource("BoxShape3D_yv7ho")
+
+[connection signal="body_exited" from="SafetyHit" to="." method="_on_safety_hit_body_exited"]

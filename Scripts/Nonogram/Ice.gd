@@ -31,7 +31,9 @@ func _on_input_event(camera, event, position, normal, shape_idx):
 		$IceShape.material_override = ice_destroyed_range_material
 		$IceCollision.disabled = true
 		destroyed = true
+		MusicManager.play_sound_pitched("break")
 	if event.is_action_pressed("mark") and in_range and not destroyed:
+		MusicManager.play_sound_pitched("mark")
 		if marked:
 			get_parent().get_parent().unmark_slot(my_x, my_y)
 			marked = false

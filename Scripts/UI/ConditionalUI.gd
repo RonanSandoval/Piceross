@@ -10,3 +10,5 @@ func _ready():
 func _check_state_change():
 	if GameManager.current_state == my_state:
 		visible = true
+	else:
+		visible = false

@@ -1,6 +1,6 @@
 extends Node
 
-enum GameState {Menu, Playing, Win, Lose, Loading}
+enum GameState {Menu, Playing, Win, Lose, Loading, Tutorial}
 var current_state : GameState = GameState.Playing
 signal state_changed
 

@@ -29,6 +29,7 @@ func update_progress():
 	$ProgressBar.value = LOAD_TIME - current_load
 
 func use_freeze():
+	MusicManager.play_sound("freeze")
 	is_ready = false
 	current_load = LOAD_TIME
 	modulate = Color(0.5, 0.5, 0.5, 1)

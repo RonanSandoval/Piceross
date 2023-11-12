@@ -1,0 +1,10 @@
+[gd_scene load_steps=3 format=3 uid="uid://diss8fgqx71ao"]
+
+[ext_resource type="Texture2D" uid="uid://cpue57hbjk104" path="res://icon.svg" id="1_n8vug"]
+[ext_resource type="Script" path="res://Scripts/Shadow.gd" id="2_2plhm"]
+
+[node name="Shadow" type="Sprite3D"]
+transform = Transform3D(0.7, 0, 0, 0, -3.0598e-08, 0.7, 0, -0.7, -3.0598e-08, 0, 0.16, 0)
+modulate = Color(0, 0, 0, 0.470588)
+texture = ExtResource("1_n8vug")
+script = ExtResource("2_2plhm")

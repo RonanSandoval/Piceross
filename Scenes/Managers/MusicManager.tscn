@@ -1,8 +1,31 @@
-[gd_scene load_steps=2 format=3 uid="uid://q5wmi8dlk81e"]
+[gd_scene load_steps=8 format=3 uid="uid://q5wmi8dlk81e"]
 
 [ext_resource type="Script" path="res://Scripts/Singletons/MusicManager.gd" id="1_5umow"]
+[ext_resource type="AudioStream" uid="uid://ci8axsf54d2ws" path="res://Audio/winter_song2.wav" id="2_lur6o"]
+[ext_resource type="AudioStream" uid="uid://cmv24kdq42c2j" path="res://Audio/break.wav" id="3_u2rct"]
+[ext_resource type="AudioStream" uid="uid://dnkk56ato8bmy" path="res://Audio/mark.wav" id="4_bpy02"]
+[ext_resource type="AudioStream" uid="uid://murryvipl00u" path="res://Audio/jump.wav" id="5_7e02y"]
+[ext_resource type="AudioStream" uid="uid://p7o376rpib6a" path="res://Audio/fall.wav" id="6_lxxv5"]
+[ext_resource type="AudioStream" uid="uid://duqoguyxtp8dd" path="res://Audio/freeze.wav" id="7_strgq"]
 
 [node name="MusicManager" type="Node"]
 script = ExtResource("1_5umow")
 
 [node name="Music" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("2_lur6o")
+volume_db = -7.018
+
+[node name="break" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("3_u2rct")
+
+[node name="mark" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("4_bpy02")
+
+[node name="jump" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("5_7e02y")
+
+[node name="fall" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("6_lxxv5")
+
+[node name="freeze" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("7_strgq")

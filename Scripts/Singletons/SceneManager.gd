@@ -5,7 +5,7 @@ func change_scene(scene_name : String):
 	await swipe_in()
 	get_tree().change_scene_to_file(scene_name)
 	swipe_out()
-	GameManager.set_game_state(GameManager.GameState.Playing)
+		
 
 func swipe_in():
 	$TransitionRect.visible = true

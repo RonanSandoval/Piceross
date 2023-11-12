@@ -1,10 +1,9 @@
-[gd_scene load_steps=33 format=3 uid="uid://cjdjohub1xatm"]
+[gd_scene load_steps=39 format=3 uid="uid://cjdjohub1xatm"]
 
 [ext_resource type="Script" path="res://Scripts/Nonogram/Nonogram.gd" id="1_mvrnd"]
 [ext_resource type="Script" path="res://Scripts/Nonogram/IceSpawner.gd" id="2_mttt7"]
 [ext_resource type="Script" path="res://Scripts/Nonogram/HintSpawner.gd" id="3_ldy71"]
 [ext_resource type="Texture2D" uid="uid://cpue57hbjk104" path="res://icon.svg" id="4_kfhe6"]
-[ext_resource type="Script" path="res://Scripts/Camera.gd" id="4_n7eex"]
 [ext_resource type="Texture2D" uid="uid://b165583d622e2" path="res://Sprites/Numbers/0.png" id="5_g0xow"]
 [ext_resource type="Script" path="res://Scripts/Player.gd" id="5_j1ucf"]
 [ext_resource type="Texture2D" uid="uid://cbp36fb1pcyoo" path="res://Sprites/Numbers/1.png" id="6_c3mlh"]
@@ -17,12 +16,18 @@
 [ext_resource type="Texture2D" uid="uid://cmt3w6aosh41t" path="res://Sprites/Numbers/6.png" id="11_ai2e4"]
 [ext_resource type="Texture2D" uid="uid://biy2i1uygt076" path="res://Sprites/Numbers/7.png" id="12_dpw67"]
 [ext_resource type="Texture2D" uid="uid://dlx60sgic260i" path="res://Sprites/Numbers/8.png" id="13_itvdc"]
+[ext_resource type="Script" path="res://Scripts/UI/Camera.gd" id="15_60ukw"]
 [ext_resource type="Texture2D" uid="uid://bcwdqvs00dvsg" path="res://Sprites/Numbers/10.png" id="15_fb1jt"]
+[ext_resource type="Script" path="res://Scripts/Shadow.gd" id="19_2g32w"]
 [ext_resource type="Script" path="res://Scripts/UI/Lives.gd" id="19_htdvy"]
 [ext_resource type="Script" path="res://Scripts/UI/Freezeray.gd" id="20_4xr6i"]
-[ext_resource type="Script" path="res://Scripts/UI/UIButton.gd" id="20_8xe7x"]
 [ext_resource type="Script" path="res://Scripts/UI/ConditionalUI.gd" id="20_xnehs"]
 [ext_resource type="Shader" path="res://Shaders/water.gdshader" id="23_blv27"]
+[ext_resource type="Script" path="res://Scripts/UI/SceneChangeButton.gd" id="23_v0n8p"]
+[ext_resource type="Script" path="res://Scripts/UI/TutorialButton.gd" id="24_f58q7"]
+[ext_resource type="Script" path="res://Scripts/UI/TutorialController.gd" id="25_qk1uq"]
+[ext_resource type="PackedScene" uid="uid://d3pe13e6t8y47" path="res://Scenes/Prefabs/safetyblock.tscn" id="27_7uh7y"]
+[ext_resource type="Script" path="res://Scripts/Enemy/Bouncer.gd" id="28_utigp"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_6d0ho"]
 size = Vector3(1, 1, 0.5)
@@ -34,10 +39,10 @@ size = Vector3(2.3, 1, 2.3)
 render_priority = 0
 shader = ExtResource("23_blv27")
 shader_parameter/OCTAVE = 6
-shader_parameter/mulscale = 5.0
+shader_parameter/mulscale = 7.0
 shader_parameter/height = 0.6
 shader_parameter/tide = 0.1
-shader_parameter/foamthickness = 0.1
+shader_parameter/foamthickness = 0.05
 shader_parameter/timescale = 0.3
 shader_parameter/waterdeep = 0.3
 shader_parameter/WATER_COL = Color(0, 0.443137, 0.678431, 1)
@@ -48,7 +53,7 @@ shader_parameter/FOAM_COL = Color(0, 0.529412, 0.807843, 1)
 lightmap_size_hint = Vector2i(252, 252)
 material = SubResource("ShaderMaterial_g2kl2")
 uv2_padding = 1.07
-size = Vector2(50, 50)
+size = Vector2(60, 60)
 
 [sub_resource type="Curve" id="Curve_ylk3t"]
 _data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(0.640719, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
@@ -76,12 +81,15 @@ material = SubResource("StandardMaterial3D_81tdd")
 radius = 0.03
 height = 0.03
 
+[sub_resource type="BoxShape3D" id="BoxShape3D_i8bvt"]
+size = Vector3(0.5, 1, 0.5)
+
 [node name="Node3D" type="Node3D"]
 
 [node name="Nonogram" type="Node" parent="."]
 script = ExtResource("1_mvrnd")
-NONOGRAM_HEIGHT = 6
-NONOGRAM_WIDTH = 6
+NONOGRAM_HEIGHT = 10
+NONOGRAM_WIDTH = 10
 
 [node name="IceSpawner" type="Node" parent="Nonogram"]
 script = ExtResource("2_mttt7")
@@ -92,7 +100,7 @@ hint_sprites = Array[Texture]([ExtResource("5_g0xow"), ExtResource("6_c3mlh"), E
 
 [node name="Camera3D" type="Camera3D" parent="." node_paths=PackedStringArray("player_node")]
 transform = Transform3D(1, 0, 0, 0, 0.34202, 0.939693, 0, -0.939693, 0.34202, 5, 4, 12)
-script = ExtResource("4_n7eex")
+script = ExtResource("15_60ukw")
 player_node = NodePath("../Player")
 
 [node name="Player" type="CharacterBody3D" parent="."]
@@ -115,12 +123,33 @@ script = ExtResource("7_nly7s")
 [node name="RangeBox" type="CollisionShape3D" parent="Player/Range"]
 shape = SubResource("BoxShape3D_8jdp3")
 
+[node name="SafetyBlock" parent="." instance=ExtResource("27_7uh7y")]
+
+[node name="Shadow" type="Sprite3D" parent="." node_paths=PackedStringArray("follow_node")]
+transform = Transform3D(0.7, 0, 0, 0, -3.0598e-08, 0.7, 0, -0.7, -3.0598e-08, 0, 0.16, 0)
+modulate = Color(0, 0, 0, 0.470588)
+texture = ExtResource("4_kfhe6")
+script = ExtResource("19_2g32w")
+follow_node = NodePath("../Player")
+
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, -0.496823, 0.867852, 0, -0.867852, -0.496823, 5, 5.1723, 10.3439)
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
-[node name="Lives" type="HBoxContainer" parent="CanvasLayer"]
+[node name="GameUI" type="Control" parent="CanvasLayer"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 1
+script = ExtResource("20_xnehs")
+my_state = 1
+
+[node name="Lives" type="HBoxContainer" parent="CanvasLayer/GameUI"]
+layout_mode = 1
 anchors_preset = 2
 anchor_top = 1.0
 anchor_bottom = 1.0
@@ -131,32 +160,33 @@ offset_bottom = -11.0
 grow_vertical = 0
 script = ExtResource("19_htdvy")
 
-[node name="Life" type="TextureRect" parent="CanvasLayer/Lives"]
+[node name="Life" type="TextureRect" parent="CanvasLayer/GameUI/Lives"]
 layout_mode = 2
 texture = ExtResource("4_kfhe6")
 expand_mode = 2
 
-[node name="Life2" type="TextureRect" parent="CanvasLayer/Lives"]
+[node name="Life2" type="TextureRect" parent="CanvasLayer/GameUI/Lives"]
 layout_mode = 2
 texture = ExtResource("4_kfhe6")
 expand_mode = 2
 
-[node name="Life3" type="TextureRect" parent="CanvasLayer/Lives"]
+[node name="Life3" type="TextureRect" parent="CanvasLayer/GameUI/Lives"]
 layout_mode = 2
 texture = ExtResource("4_kfhe6")
 expand_mode = 2
 
-[node name="Life4" type="TextureRect" parent="CanvasLayer/Lives"]
+[node name="Life4" type="TextureRect" parent="CanvasLayer/GameUI/Lives"]
 layout_mode = 2
 texture = ExtResource("4_kfhe6")
 expand_mode = 2
 
-[node name="Life5" type="TextureRect" parent="CanvasLayer/Lives"]
+[node name="Life5" type="TextureRect" parent="CanvasLayer/GameUI/Lives"]
 layout_mode = 2
 texture = ExtResource("4_kfhe6")
 expand_mode = 2
 
-[node name="Freezeray" type="TextureRect" parent="CanvasLayer"]
+[node name="Freezeray" type="TextureRect" parent="CanvasLayer/GameUI"]
+layout_mode = 1
 anchors_preset = 3
 anchor_left = 1.0
 anchor_top = 1.0
@@ -172,7 +202,7 @@ texture = ExtResource("4_kfhe6")
 expand_mode = 1
 script = ExtResource("20_4xr6i")
 
-[node name="ProgressBar" type="ProgressBar" parent="CanvasLayer/Freezeray"]
+[node name="ProgressBar" type="ProgressBar" parent="CanvasLayer/GameUI/Freezeray"]
 layout_mode = 0
 offset_left = -22.0
 offset_top = 134.0
@@ -190,6 +220,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+mouse_filter = 1
 script = ExtResource("20_xnehs")
 my_state = 2
 
@@ -211,13 +242,13 @@ theme_override_constants/separation = 100
 [node name="LevelSelect" type="TextureRect" parent="CanvasLayer/WinUI/HBoxContainer"]
 layout_mode = 2
 texture = ExtResource("4_kfhe6")
-script = ExtResource("20_8xe7x")
+script = ExtResource("23_v0n8p")
 to_scene = "res://Scenes/LevelSelect.tscn"
 
 [node name="NextLevel" type="TextureRect" parent="CanvasLayer/WinUI/HBoxContainer"]
 layout_mode = 2
 texture = ExtResource("4_kfhe6")
-script = ExtResource("20_8xe7x")
+script = ExtResource("23_v0n8p")
 to_scene = "res://Scenes/Main.tscn"
 
 [node name="LoseUI" type="Control" parent="CanvasLayer"]
@@ -228,6 +259,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+mouse_filter = 1
 script = ExtResource("20_xnehs")
 my_state = 3
 
@@ -249,14 +281,105 @@ theme_override_constants/separation = 100
 [node name="LevelSelect" type="TextureRect" parent="CanvasLayer/LoseUI/HBoxContainer"]
 layout_mode = 2
 texture = ExtResource("4_kfhe6")
-script = ExtResource("20_8xe7x")
+script = ExtResource("23_v0n8p")
 to_scene = "res://Scenes/LevelSelect.tscn"
 
 [node name="RestartLevel" type="TextureRect" parent="CanvasLayer/LoseUI/HBoxContainer"]
 layout_mode = 2
 texture = ExtResource("4_kfhe6")
-script = ExtResource("20_8xe7x")
+script = ExtResource("23_v0n8p")
 to_scene = "res://Scenes/Main.tscn"
+
+[node name="Tutorial" type="Control" parent="CanvasLayer"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 1
+script = ExtResource("25_qk1uq")
+
+[node name="BG" type="ColorRect" parent="CanvasLayer/Tutorial"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -250.0
+offset_top = -279.0
+offset_right = 250.0
+offset_bottom = 121.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 1
+
+[node name="Pages" type="Control" parent="CanvasLayer/Tutorial"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Page1" type="RichTextLabel" parent="CanvasLayer/Tutorial/Pages"]
+visible = false
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -230.0
+offset_top = -255.0
+offset_right = 220.0
+offset_bottom = 95.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 1
+theme_override_colors/default_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/normal_font_size = 24
+bbcode_enabled = true
+text = "Welcome to Piceross!
+
+[img]res://icon.svg[/img]"
+
+[node name="Page2" type="RichTextLabel" parent="CanvasLayer/Tutorial/Pages"]
+visible = false
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -230.0
+offset_top = -255.0
+offset_right = 220.0
+offset_bottom = 95.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 1
+theme_override_colors/default_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/normal_font_size = 24
+bbcode_enabled = true
+text = "Different text"
+
+[node name="ProceedButton" type="TextureRect" parent="CanvasLayer/Tutorial"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -64.0
+offset_top = 90.0
+offset_right = 64.0
+offset_bottom = 218.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("4_kfhe6")
+script = ExtResource("24_f58q7")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]
 mesh = SubResource("PlaneMesh_sr2eo")
@@ -266,14 +389,30 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 5.46135, 0)
 amount = 400
 lifetime = 20.0
 preprocess = 100.0
+visibility_aabb = AABB(-4, -4, -4, 8, 8, 15)
 process_material = SubResource("ParticleProcessMaterial_pnm7h")
 draw_pass_1 = SubResource("SphereMesh_y3ojn")
 
+[node name="Enemies" type="Node" parent="."]
+
+[node name="Bouncer" type="Area3D" parent="Enemies"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.092, 1, 0)
+script = ExtResource("28_utigp")
+X_AVG = 2.0
+Z_AVG = 2.0
+
+[node name="Sprite3D" type="Sprite3D" parent="Enemies/Bouncer"]
+transform = Transform3D(0.8, 0, 0, 0, 0.4, 0.69282, 0, -0.69282, 0.4, 0, 0, 0)
+texture = ExtResource("4_kfhe6")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Enemies/Bouncer"]
+shape = SubResource("BoxShape3D_i8bvt")
+
 [connection signal="area_entered" from="Player/Range" to="Player/Range" method="_on_area_entered"]
 [connection signal="area_exited" from="Player/Range" to="Player/Range" method="_on_area_exited"]
-[connection signal="gui_input" from="CanvasLayer/Freezeray" to="CanvasLayer/Freezeray" method="_on_gui_input"]
-[connection signal="mouse_entered" from="CanvasLayer/Freezeray" to="CanvasLayer/Freezeray" method="_on_mouse_entered"]
-[connection signal="mouse_exited" from="CanvasLayer/Freezeray" to="CanvasLayer/Freezeray" method="_on_mouse_exited"]
+[connection signal="gui_input" from="CanvasLayer/GameUI/Freezeray" to="CanvasLayer/GameUI/Freezeray" method="_on_gui_input"]
+[connection signal="mouse_entered" from="CanvasLayer/GameUI/Freezeray" to="CanvasLayer/GameUI/Freezeray" method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="CanvasLayer/GameUI/Freezeray" to="CanvasLayer/GameUI/Freezeray" method="_on_mouse_exited"]
 [connection signal="gui_input" from="CanvasLayer/WinUI/HBoxContainer/LevelSelect" to="CanvasLayer/WinUI/HBoxContainer/LevelSelect" method="_on_gui_input"]
 [connection signal="mouse_entered" from="CanvasLayer/WinUI/HBoxContainer/LevelSelect" to="CanvasLayer/WinUI/HBoxContainer/LevelSelect" method="_on_mouse_entered"]
 [connection signal="mouse_exited" from="CanvasLayer/WinUI/HBoxContainer/LevelSelect" to="CanvasLayer/WinUI/HBoxContainer/LevelSelect" method="_on_mouse_exited"]
@@ -286,3 +425,6 @@ draw_pass_1 = SubResource("SphereMesh_y3ojn")
 [connection signal="gui_input" from="CanvasLayer/LoseUI/HBoxContainer/RestartLevel" to="CanvasLayer/LoseUI/HBoxContainer/RestartLevel" method="_on_gui_input"]
 [connection signal="mouse_entered" from="CanvasLayer/LoseUI/HBoxContainer/RestartLevel" to="CanvasLayer/LoseUI/HBoxContainer/RestartLevel" method="_on_mouse_entered"]
 [connection signal="mouse_exited" from="CanvasLayer/LoseUI/HBoxContainer/RestartLevel" to="CanvasLayer/LoseUI/HBoxContainer/RestartLevel" method="_on_mouse_exited"]
+[connection signal="gui_input" from="CanvasLayer/Tutorial/ProceedButton" to="CanvasLayer/Tutorial/ProceedButton" method="_on_gui_input"]
+[connection signal="mouse_entered" from="CanvasLayer/Tutorial/ProceedButton" to="CanvasLayer/Tutorial/ProceedButton" method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="CanvasLayer/Tutorial/ProceedButton" to="CanvasLayer/Tutorial/ProceedButton" method="_on_mouse_exited"]
