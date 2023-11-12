@@ -1,9 +1,8 @@
-[gd_scene load_steps=39 format=3 uid="uid://cjdjohub1xatm"]
+[gd_scene load_steps=58 format=3 uid="uid://cjdjohub1xatm"]
 
 [ext_resource type="Script" path="res://Scripts/Nonogram/Nonogram.gd" id="1_mvrnd"]
 [ext_resource type="Script" path="res://Scripts/Nonogram/IceSpawner.gd" id="2_mttt7"]
 [ext_resource type="Script" path="res://Scripts/Nonogram/HintSpawner.gd" id="3_ldy71"]
-[ext_resource type="Texture2D" uid="uid://cpue57hbjk104" path="res://icon.svg" id="4_kfhe6"]
 [ext_resource type="Texture2D" uid="uid://b165583d622e2" path="res://Sprites/Numbers/0.png" id="5_g0xow"]
 [ext_resource type="Script" path="res://Scripts/Player.gd" id="5_j1ucf"]
 [ext_resource type="Texture2D" uid="uid://cbp36fb1pcyoo" path="res://Sprites/Numbers/1.png" id="6_c3mlh"]
@@ -18,24 +17,59 @@
 [ext_resource type="Texture2D" uid="uid://dlx60sgic260i" path="res://Sprites/Numbers/8.png" id="13_itvdc"]
 [ext_resource type="Script" path="res://Scripts/UI/Camera.gd" id="15_60ukw"]
 [ext_resource type="Texture2D" uid="uid://bcwdqvs00dvsg" path="res://Sprites/Numbers/10.png" id="15_fb1jt"]
-[ext_resource type="Script" path="res://Scripts/Shadow.gd" id="19_2g32w"]
+[ext_resource type="Material" uid="uid://b5riljx6xlo5u" path="res://Shaders/Wiggler.material" id="17_gdse0"]
+[ext_resource type="Texture2D" uid="uid://cxuub6380rlkd" path="res://Sprites/player.png" id="17_hle3c"]
+[ext_resource type="Texture2D" uid="uid://cdp6ink0vg4lt" path="res://Sprites/player2.png" id="17_umhqh"]
 [ext_resource type="Script" path="res://Scripts/UI/Lives.gd" id="19_htdvy"]
 [ext_resource type="Script" path="res://Scripts/UI/Freezeray.gd" id="20_4xr6i"]
+[ext_resource type="PackedScene" uid="uid://diss8fgqx71ao" path="res://Scenes/Prefabs/shadow.tscn" id="20_ltfgk"]
 [ext_resource type="Script" path="res://Scripts/UI/ConditionalUI.gd" id="20_xnehs"]
 [ext_resource type="Shader" path="res://Shaders/water.gdshader" id="23_blv27"]
 [ext_resource type="Script" path="res://Scripts/UI/SceneChangeButton.gd" id="23_v0n8p"]
+[ext_resource type="Texture2D" uid="uid://b8quwtif2cb5x" path="res://Sprites/heart.png" id="24_bnuu0"]
 [ext_resource type="Script" path="res://Scripts/UI/TutorialButton.gd" id="24_f58q7"]
 [ext_resource type="Script" path="res://Scripts/UI/TutorialController.gd" id="25_qk1uq"]
+[ext_resource type="Texture2D" uid="uid://cqr3vyooo3qbx" path="res://Sprites/freeze.png" id="25_xiq75"]
 [ext_resource type="PackedScene" uid="uid://d3pe13e6t8y47" path="res://Scenes/Prefabs/safetyblock.tscn" id="27_7uh7y"]
 [ext_resource type="Script" path="res://Scripts/Enemy/Bouncer.gd" id="28_utigp"]
+[ext_resource type="Script" path="res://Scripts/Enemy/Breaker.gd" id="29_37e3h"]
+[ext_resource type="Texture2D" uid="uid://dhnvmmyhyruu7" path="res://Sprites/UI/menu.png" id="30_db6mt"]
+[ext_resource type="Script" path="res://Scripts/Enemy/SpikerSpawner.gd" id="31_icy68"]
+[ext_resource type="Texture2D" uid="uid://cjxptwgvk2jnv" path="res://Sprites/Enemies/bouncer1.png" id="31_kebvh"]
+[ext_resource type="Texture2D" uid="uid://x4iyx2yhtc5g" path="res://Sprites/UI/restart.png" id="31_mbcg7"]
+[ext_resource type="Texture2D" uid="uid://d4i7q85ca63qy" path="res://Sprites/UI/next.png" id="31_t3y00"]
+[ext_resource type="Texture2D" uid="uid://c3at5qy06jtie" path="res://Sprites/Enemies/breaker1.png" id="32_bsh34"]
+[ext_resource type="Texture2D" uid="uid://dr7jp7obhm02k" path="res://Sprites/Enemies/bouncer2.png" id="32_qpq7q"]
+[ext_resource type="Texture2D" uid="uid://dkf5ntiqdty15" path="res://Sprites/Enemies/breaker2.png" id="33_6fb6v"]
+[ext_resource type="Texture2D" uid="uid://c3qnqgijsrh16" path="res://Sprites/UI/tutorial_bg.png" id="33_ejq26"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_0jtxs"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("17_umhqh")
+}, {
+"duration": 1.0,
+"texture": ExtResource("17_hle3c")
+}],
+"loop": true,
+"name": &"default",
+"speed": 2.0
+}]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_6d0ho"]
-size = Vector3(1, 1, 0.5)
+size = Vector3(0.7, 1, 0.5)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_8jdp3"]
 size = Vector3(2.3, 1, 2.3)
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_g2kl2"]
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_jlkv1"]
+bg_color = Color(0, 0, 0, 0.301961)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_84yq7"]
+bg_color = Color(0.0627451, 0.231373, 0.4, 1)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_jgrte"]
 render_priority = 0
 shader = ExtResource("23_blv27")
 shader_parameter/OCTAVE = 6
@@ -51,7 +85,7 @@ shader_parameter/FOAM_COL = Color(0, 0.529412, 0.807843, 1)
 
 [sub_resource type="PlaneMesh" id="PlaneMesh_sr2eo"]
 lightmap_size_hint = Vector2i(252, 252)
-material = SubResource("ShaderMaterial_g2kl2")
+material = SubResource("ShaderMaterial_jgrte")
 uv2_padding = 1.07
 size = Vector2(60, 60)
 
@@ -81,8 +115,36 @@ material = SubResource("StandardMaterial3D_81tdd")
 radius = 0.03
 height = 0.03
 
+[sub_resource type="SpriteFrames" id="SpriteFrames_0enrn"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("31_kebvh")
+}, {
+"duration": 1.0,
+"texture": ExtResource("32_qpq7q")
+}],
+"loop": true,
+"name": &"default",
+"speed": 3.0
+}]
+
 [sub_resource type="BoxShape3D" id="BoxShape3D_i8bvt"]
 size = Vector3(0.5, 1, 0.5)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_75iwh"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("32_bsh34")
+}, {
+"duration": 1.0,
+"texture": ExtResource("33_6fb6v")
+}],
+"loop": true,
+"name": &"default",
+"speed": 3.0
+}]
 
 [node name="Node3D" type="Node3D"]
 
@@ -108,9 +170,11 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
 input_ray_pickable = false
 script = ExtResource("5_j1ucf")
 
-[node name="PlayerSprite" type="Sprite3D" parent="Player"]
-transform = Transform3D(0.7, 0, 0, 0, 0.35, 0.606218, 0, -0.606218, 0.35, 0, 0, 0)
-texture = ExtResource("4_kfhe6")
+[node name="PlayerSprite" type="AnimatedSprite3D" parent="Player"]
+transform = Transform3D(0.8, 0, 0, 0, 0.4, 0.69282, 0, -0.69282, 0.4, 0, 0, -0.2)
+billboard = 1
+sprite_frames = SubResource("SpriteFrames_0jtxs")
+autoplay = "default"
 
 [node name="PlayerCollision" type="CollisionShape3D" parent="Player"]
 shape = SubResource("BoxShape3D_6d0ho")
@@ -125,11 +189,7 @@ shape = SubResource("BoxShape3D_8jdp3")
 
 [node name="SafetyBlock" parent="." instance=ExtResource("27_7uh7y")]
 
-[node name="Shadow" type="Sprite3D" parent="." node_paths=PackedStringArray("follow_node")]
-transform = Transform3D(0.7, 0, 0, 0, -3.0598e-08, 0.7, 0, -0.7, -3.0598e-08, 0, 0.16, 0)
-modulate = Color(0, 0, 0, 0.470588)
-texture = ExtResource("4_kfhe6")
-script = ExtResource("19_2g32w")
+[node name="Shadow" parent="." node_paths=PackedStringArray("follow_node") instance=ExtResource("20_ltfgk")]
 follow_node = NodePath("../Player")
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
@@ -161,31 +221,37 @@ grow_vertical = 0
 script = ExtResource("19_htdvy")
 
 [node name="Life" type="TextureRect" parent="CanvasLayer/GameUI/Lives"]
+material = ExtResource("17_gdse0")
 layout_mode = 2
-texture = ExtResource("4_kfhe6")
+texture = ExtResource("24_bnuu0")
 expand_mode = 2
 
 [node name="Life2" type="TextureRect" parent="CanvasLayer/GameUI/Lives"]
+material = ExtResource("17_gdse0")
 layout_mode = 2
-texture = ExtResource("4_kfhe6")
+texture = ExtResource("24_bnuu0")
 expand_mode = 2
 
 [node name="Life3" type="TextureRect" parent="CanvasLayer/GameUI/Lives"]
+material = ExtResource("17_gdse0")
 layout_mode = 2
-texture = ExtResource("4_kfhe6")
+texture = ExtResource("24_bnuu0")
 expand_mode = 2
 
 [node name="Life4" type="TextureRect" parent="CanvasLayer/GameUI/Lives"]
+material = ExtResource("17_gdse0")
 layout_mode = 2
-texture = ExtResource("4_kfhe6")
+texture = ExtResource("24_bnuu0")
 expand_mode = 2
 
 [node name="Life5" type="TextureRect" parent="CanvasLayer/GameUI/Lives"]
+material = ExtResource("17_gdse0")
 layout_mode = 2
-texture = ExtResource("4_kfhe6")
+texture = ExtResource("24_bnuu0")
 expand_mode = 2
 
 [node name="Freezeray" type="TextureRect" parent="CanvasLayer/GameUI"]
+material = ExtResource("17_gdse0")
 layout_mode = 1
 anchors_preset = 3
 anchor_left = 1.0
@@ -198,7 +264,7 @@ offset_right = -19.0
 offset_bottom = -18.0
 grow_horizontal = 0
 grow_vertical = 0
-texture = ExtResource("4_kfhe6")
+texture = ExtResource("25_xiq75")
 expand_mode = 1
 script = ExtResource("20_4xr6i")
 
@@ -209,6 +275,8 @@ offset_top = 134.0
 offset_right = 111.0
 offset_bottom = 151.0
 rotation = -1.5708
+theme_override_styles/background = SubResource("StyleBoxFlat_jlkv1")
+theme_override_styles/fill = SubResource("StyleBoxFlat_84yq7")
 max_value = 2.0
 value = 2.0
 show_percentage = false
@@ -240,14 +308,16 @@ grow_vertical = 0
 theme_override_constants/separation = 100
 
 [node name="LevelSelect" type="TextureRect" parent="CanvasLayer/WinUI/HBoxContainer"]
+material = ExtResource("17_gdse0")
 layout_mode = 2
-texture = ExtResource("4_kfhe6")
+texture = ExtResource("30_db6mt")
 script = ExtResource("23_v0n8p")
 to_scene = "res://Scenes/LevelSelect.tscn"
 
 [node name="NextLevel" type="TextureRect" parent="CanvasLayer/WinUI/HBoxContainer"]
+material = ExtResource("17_gdse0")
 layout_mode = 2
-texture = ExtResource("4_kfhe6")
+texture = ExtResource("31_t3y00")
 script = ExtResource("23_v0n8p")
 to_scene = "res://Scenes/Main.tscn"
 
@@ -279,14 +349,16 @@ grow_vertical = 2
 theme_override_constants/separation = 100
 
 [node name="LevelSelect" type="TextureRect" parent="CanvasLayer/LoseUI/HBoxContainer"]
+material = ExtResource("17_gdse0")
 layout_mode = 2
-texture = ExtResource("4_kfhe6")
+texture = ExtResource("30_db6mt")
 script = ExtResource("23_v0n8p")
 to_scene = "res://Scenes/LevelSelect.tscn"
 
 [node name="RestartLevel" type="TextureRect" parent="CanvasLayer/LoseUI/HBoxContainer"]
+material = ExtResource("17_gdse0")
 layout_mode = 2
-texture = ExtResource("4_kfhe6")
+texture = ExtResource("31_mbcg7")
 script = ExtResource("23_v0n8p")
 to_scene = "res://Scenes/Main.tscn"
 
@@ -300,20 +372,20 @@ grow_vertical = 2
 mouse_filter = 1
 script = ExtResource("25_qk1uq")
 
-[node name="BG" type="ColorRect" parent="CanvasLayer/Tutorial"]
+[node name="BG" type="TextureRect" parent="CanvasLayer/Tutorial"]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -250.0
-offset_top = -279.0
-offset_right = 250.0
-offset_bottom = 121.0
+offset_left = -283.5
+offset_top = -301.0
+offset_right = 283.5
+offset_bottom = 152.0
 grow_horizontal = 2
 grow_vertical = 2
-mouse_filter = 1
+texture = ExtResource("33_ejq26")
 
 [node name="Pages" type="Control" parent="CanvasLayer/Tutorial"]
 layout_mode = 1
@@ -324,7 +396,6 @@ grow_horizontal = 2
 grow_vertical = 2
 
 [node name="Page1" type="RichTextLabel" parent="CanvasLayer/Tutorial/Pages"]
-visible = false
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -346,7 +417,6 @@ text = "Welcome to Piceross!
 [img]res://icon.svg[/img]"
 
 [node name="Page2" type="RichTextLabel" parent="CanvasLayer/Tutorial/Pages"]
-visible = false
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -366,6 +436,7 @@ bbcode_enabled = true
 text = "Different text"
 
 [node name="ProceedButton" type="TextureRect" parent="CanvasLayer/Tutorial"]
+material = ExtResource("17_gdse0")
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -378,7 +449,7 @@ offset_right = 64.0
 offset_bottom = 218.0
 grow_horizontal = 2
 grow_vertical = 2
-texture = ExtResource("4_kfhe6")
+texture = ExtResource("31_t3y00")
 script = ExtResource("24_f58q7")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]
@@ -397,16 +468,37 @@ draw_pass_1 = SubResource("SphereMesh_y3ojn")
 
 [node name="Bouncer" type="Area3D" parent="Enemies"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.092, 1, 0)
+input_ray_pickable = false
 script = ExtResource("28_utigp")
 X_AVG = 2.0
 Z_AVG = 2.0
 
-[node name="Sprite3D" type="Sprite3D" parent="Enemies/Bouncer"]
-transform = Transform3D(0.8, 0, 0, 0, 0.4, 0.69282, 0, -0.69282, 0.4, 0, 0, 0)
-texture = ExtResource("4_kfhe6")
+[node name="Sprite3D" type="AnimatedSprite3D" parent="Enemies/Bouncer"]
+transform = Transform3D(0.8, 0, 0, 0, 0.4, 0.69282, 0, -0.69282, 0.4, 0, 0, -0.2)
+sprite_frames = SubResource("SpriteFrames_0enrn")
+autoplay = "default"
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Enemies/Bouncer"]
 shape = SubResource("BoxShape3D_i8bvt")
+
+[node name="Breaker" type="Area3D" parent="Enemies"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.092, 1, 0)
+input_ray_pickable = false
+script = ExtResource("29_37e3h")
+MOVE_TIME = 3.0
+WAIT_TIME = 8.0
+
+[node name="Sprite3D" type="AnimatedSprite3D" parent="Enemies/Breaker"]
+transform = Transform3D(0.8, 0, 0, 0, 0.4, 0.69282, 0, -0.69282, 0.4, 0, 0, -0.2)
+sprite_frames = SubResource("SpriteFrames_75iwh")
+autoplay = "default"
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Enemies/Breaker"]
+shape = SubResource("BoxShape3D_i8bvt")
+
+[node name="SpikerSpawner" type="Node" parent="Enemies"]
+script = ExtResource("31_icy68")
+WAIT_TIME = 4.0
 
 [connection signal="area_entered" from="Player/Range" to="Player/Range" method="_on_area_entered"]
 [connection signal="area_exited" from="Player/Range" to="Player/Range" method="_on_area_exited"]

@@ -8,6 +8,8 @@ var answer : Array = [[]]
 @export var NONOGRAM_HEIGHT : int
 @export var NONOGRAM_WIDTH : int 
 
+signal slot_broken
+
 func _ready():
 	prepare_nonogram()
 	$IceSpawner.reset_board()
@@ -20,7 +22,10 @@ func prepare_nonogram():
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
-	pass
+	if Input.is_action_just_pressed("ui_accept"):
+		print("------------------------------")
+		for row in nonogram: 
+			print(row)
 
 func reset_nonogram() -> void:
 	var inner_array = []
@@ -33,6 +38,7 @@ func reset_nonogram() -> void:
 	
 func break_slot(x : int, y : int) -> void:
 	nonogram[y][x] = 1
+	slot_broken.emit()
 	check_puzzle()
 
 func unbreak_slot(x : int, y : int) -> void:
@@ -44,7 +50,7 @@ func mark_slot(x : int, y : int) -> void:
 
 func unmark_slot(x : int, y : int) -> void:
 	if nonogram[y][x] == 2:
-		nonogram[y][x] = 1
+		nonogram[y][x] = 0
 	
 func get_hints(type : String, index : int) -> Array:
 	var hints : Array = []
@@ -90,3 +96,7 @@ func check_puzzle():
 				return false
 	GameManager.set_game_state(GameManager.GameState.Win)
 	return true	
+
+func get_slot(x : int, z : int) -> int:
+	return nonogram[x][z]
+

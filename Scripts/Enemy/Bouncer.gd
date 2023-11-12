@@ -22,6 +22,7 @@ func _process(delta):
 			position.x = clamp(position.x, -0.5, 9.5)
 			x_dir *= -1
 			x_velocity = X_AVG * randf_range(0.8, 1.2)
+			$Sprite3D.flip_h = x_dir < 0
 		if position.z < -0.5 or position.z > 9.5:
 			position.z = clamp(position.z, -0.5, 9.5)
 			z_dir *= -1

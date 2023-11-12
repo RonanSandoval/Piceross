@@ -20,37 +20,41 @@ func _ready():
 	get_parent().get_parent().get_parent().find_child("Freezeray").connect("freeze", on_freeze)
 
 
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta):
-	pass
-
-
 func _on_input_event(camera, event, position, normal, shape_idx):
-	if event.is_action_pressed("break") and in_range and not marked:
-		get_parent().get_parent().break_slot(my_x, my_y)
-		$IceShape.material_override = ice_destroyed_range_material
-		$IceCollision.disabled = true
-		destroyed = true
-		MusicManager.play_sound_pitched("break")
+	if event.is_action_pressed("break") and in_range:
+		break_ice()
 	if event.is_action_pressed("mark") and in_range and not destroyed:
 		MusicManager.play_sound_pitched("mark")
 		if marked:
-			get_parent().get_parent().unmark_slot(my_x, my_y)
-			marked = false
-			$Marker.visible = false
+			unmark()
 		else:
 			get_parent().get_parent().mark_slot(my_x, my_y)
 			marked = true
 			$Marker.visible = true
 		
 
+func break_ice():
+	if not destroyed and not marked:
+		get_parent().get_parent().break_slot(my_x, my_y)
+		if not in_range:
+			$IceShape.material_override = ice_destroyed_material
+		else:
+			$IceShape.material_override = ice_destroyed_range_material
+		$IceCollision.call_deferred("set_disabled", true)
+		destroyed = true
+		MusicManager.play_sound_pitched("break")
+
+func unmark():
+	get_parent().get_parent().unmark_slot(my_x, my_y)
+	marked = false
+	$Marker.visible = false
+
 func on_freeze():
 	if in_range and destroyed:
 		destroyed = false
 		get_parent().get_parent().unbreak_slot(my_x, my_y)
-		$IceCollision.disabled = false
+		$IceCollision.call_deferred("set_disabled", false)
 		$IceShape.material_override = ice_range_material
-		
 
 func _on_mouse_entered():
 	if not destroyed:

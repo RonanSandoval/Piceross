@@ -1,0 +1,52 @@
+[gd_scene load_steps=8 format=3 uid="uid://cip85vklqccvs"]
+
+[ext_resource type="Script" path="res://Scripts/Enemy/Spiker.gd" id="1_7qpjj"]
+[ext_resource type="Texture2D" uid="uid://8crktuyy8ppn" path="res://Sprites/Enemies/spiker3.png" id="2_ljct8"]
+[ext_resource type="Texture2D" uid="uid://brcxvgakmkkeo" path="res://Sprites/Enemies/spiker1.png" id="3_316oa"]
+[ext_resource type="Texture2D" uid="uid://cxvotg27u1w4r" path="res://Sprites/Enemies/spiker4.png" id="3_lmugt"]
+[ext_resource type="Texture2D" uid="uid://cj0g3evy4jocg" path="res://Sprites/Enemies/spiker2.png" id="4_y67al"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_gspeq"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_ljct8")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_lmugt")
+}],
+"loop": true,
+"name": &"alive",
+"speed": 3.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("3_316oa")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_y67al")
+}],
+"loop": true,
+"name": &"hibernate",
+"speed": 3.0
+}]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_i8bvt"]
+size = Vector3(0.5, 1.8105, 0.5)
+
+[node name="Spiker" type="Area3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.014, 0.4, 6.211)
+input_ray_pickable = false
+script = ExtResource("1_7qpjj")
+
+[node name="Sprite3D" type="AnimatedSprite3D" parent="."]
+transform = Transform3D(0.7, 0, 0, 0, 0.35, 0.606218, 0, -0.606218, 0.35, 0, 0, -0.3)
+sprite_frames = SubResource("SpriteFrames_gspeq")
+animation = &"alive"
+autoplay = "alive"
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.607927, 0)
+shape = SubResource("BoxShape3D_i8bvt")
+
+[connection signal="area_entered" from="." to="." method="_on_area_entered"]

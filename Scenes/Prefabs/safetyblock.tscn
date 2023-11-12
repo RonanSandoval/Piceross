@@ -23,5 +23,3 @@ shape = SubResource("BoxShape3D_ltcls")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="SafetyHit"]
 shape = SubResource("BoxShape3D_yv7ho")
-
-[connection signal="body_exited" from="SafetyHit" to="." method="_on_safety_hit_body_exited"]
