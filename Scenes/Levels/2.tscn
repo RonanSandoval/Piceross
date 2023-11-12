@@ -282,7 +282,7 @@ material = ExtResource("24_6cml6")
 layout_mode = 2
 texture = ExtResource("30_y3noh")
 script = ExtResource("29_ink7t")
-to_scene = "res://Scenes/Main.tscn"
+to_scene = "res://Scenes/Levels/3.tscn"
 
 [node name="LoseUI" type="Control" parent="CanvasLayer"]
 visible = false
@@ -323,7 +323,7 @@ material = ExtResource("24_6cml6")
 layout_mode = 2
 texture = ExtResource("31_4girw")
 script = ExtResource("29_ink7t")
-to_scene = "res://Scenes/Main.tscn"
+to_scene = "res://Scenes/Levels/2.tscn"
 
 [node name="Tutorial" type="Control" parent="CanvasLayer"]
 layout_mode = 3
@@ -375,28 +375,11 @@ mouse_filter = 1
 theme_override_colors/default_color = Color(0, 0, 0, 1)
 theme_override_font_sizes/normal_font_size = 24
 bbcode_enabled = true
-text = "Welcome to Piceross!
+text = "If there is more than one number for a row or column, it means that there are multiple groups of broken tiles, separated by at least one unbroken tile.
 
-[img]res://icon.svg[/img]"
+[img]res://Sprites/Tutorial/5.png[/img]
 
-[node name="Page2" type="RichTextLabel" parent="CanvasLayer/Tutorial/Pages"]
-layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -230.0
-offset_top = -255.0
-offset_right = 220.0
-offset_bottom = 95.0
-grow_horizontal = 2
-grow_vertical = 2
-mouse_filter = 1
-theme_override_colors/default_color = Color(0, 0, 0, 1)
-theme_override_font_sizes/normal_font_size = 24
-bbcode_enabled = true
-text = "Different text"
+"
 
 [node name="ProceedButton" type="TextureRect" parent="CanvasLayer/Tutorial"]
 material = ExtResource("24_6cml6")

@@ -1,6 +1,7 @@
-[gd_scene load_steps=11 format=3 uid="uid://q5wmi8dlk81e"]
+[gd_scene load_steps=13 format=3 uid="uid://q5wmi8dlk81e"]
 
 [ext_resource type="Script" path="res://Scripts/Singletons/MusicManager.gd" id="1_5umow"]
+[ext_resource type="AudioStream" uid="uid://dnaorji3ca6x1" path="res://Audio/winter_song_DRAFT1.wav" id="2_36pas"]
 [ext_resource type="AudioStream" uid="uid://ci8axsf54d2ws" path="res://Audio/winter_song2.wav" id="2_lur6o"]
 [ext_resource type="AudioStream" uid="uid://cmv24kdq42c2j" path="res://Audio/break.wav" id="3_u2rct"]
 [ext_resource type="AudioStream" uid="uid://dnkk56ato8bmy" path="res://Audio/mark.wav" id="4_bpy02"]
@@ -10,11 +11,16 @@
 [ext_resource type="AudioStream" uid="uid://dpdy8jv1ueyjg" path="res://Audio/hurt.wav" id="8_rjkt4"]
 [ext_resource type="AudioStream" uid="uid://d0lafcm1y5ub1" path="res://Audio/spiked.wav" id="9_tdwfr"]
 [ext_resource type="AudioStream" uid="uid://snjw5thmx10r" path="res://Audio/button.wav" id="10_pn34b"]
+[ext_resource type="AudioStream" uid="uid://bn2tv1mxilp7b" path="res://Audio/win.wav" id="11_djagq"]
 
 [node name="MusicManager" type="Node"]
 script = ExtResource("1_5umow")
 
-[node name="Music" type="AudioStreamPlayer" parent="."]
+[node name="MenuMusic" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("2_36pas")
+volume_db = -7.018
+
+[node name="GameMusic" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("2_lur6o")
 volume_db = -7.018
 
@@ -41,3 +47,6 @@ stream = ExtResource("9_tdwfr")
 
 [node name="button" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("10_pn34b")
+
+[node name="win" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("11_djagq")

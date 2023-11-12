@@ -103,6 +103,9 @@ func check_puzzle():
 			if answer[y][x] == 1 and not nonogram[y][x] == 1:
 				return false
 	GameManager.set_game_state(GameManager.GameState.Win)
+	if GameManager.game_progress <= puzzle_index + 1:
+		GameManager.game_progress = puzzle_index + 2
+	MusicManager.play_sound("win")
 	return true	
 
 func get_slot(x : int, z : int) -> int:

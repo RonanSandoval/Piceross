@@ -2,7 +2,7 @@ extends TextureRect
 
 signal freeze
 
-const LOAD_TIME : float = 2
+const LOAD_TIME : float = 1
 
 var current_load : float = 0
 var is_ready : bool = true

@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://daaxo0hgxf57w"]
+[gd_scene load_steps=17 format=3 uid="uid://daaxo0hgxf57w"]
 
 [ext_resource type="Script" path="res://Scripts/Nonogram/Ice.gd" id="1_cg8q5"]
 [ext_resource type="Material" uid="uid://d2u1n3w4o8fkt" path="res://Materials/ice.material" id="2_34j4h"]
@@ -15,6 +15,31 @@ size = Vector3(1, 0.3, 1)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_gcdo1"]
 size = Vector3(1, 0.3, 1)
+
+[sub_resource type="Curve" id="Curve_xnapt"]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(0.824524, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 3
+
+[sub_resource type="CurveTexture" id="CurveTexture_wq2mr"]
+curve = SubResource("Curve_xnapt")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_u72lj"]
+direction = Vector3(1, 10, 0)
+gravity = Vector3(0, -5, 0)
+initial_velocity_min = 3.0
+initial_velocity_max = 7.0
+scale_min = 0.05
+scale_max = 0.1
+scale_curve = SubResource("CurveTexture_wq2mr")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_3dvdg"]
+albedo_color = Color(0.615686, 0.878431, 1, 1)
+emission_enabled = true
+emission = Color(0.639216, 0.886275, 1, 1)
+emission_energy_multiplier = 1.3
+
+[sub_resource type="SphereMesh" id="SphereMesh_6npv0"]
+material = SubResource("StandardMaterial3D_3dvdg")
 
 [node name="Ice" type="StaticBody3D"]
 script = ExtResource("1_cg8q5")
@@ -43,6 +68,15 @@ transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 0.1
 visible = false
 modulate = Color(1, 1, 1, 0.627451)
 texture = ExtResource("9_svpcf")
+
+[node name="GPUParticles3D" type="GPUParticles3D" parent="."]
+emitting = false
+amount = 15
+lifetime = 0.4
+one_shot = true
+explosiveness = 1.0
+process_material = SubResource("ParticleProcessMaterial_u72lj")
+draw_pass_1 = SubResource("SphereMesh_6npv0")
 
 [connection signal="input_event" from="." to="." method="_on_input_event"]
 [connection signal="mouse_entered" from="." to="." method="_on_mouse_entered"]

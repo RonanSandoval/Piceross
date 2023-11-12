@@ -239,8 +239,8 @@ offset_bottom = 151.0
 rotation = -1.5708
 theme_override_styles/background = SubResource("StyleBoxFlat_jlkv1")
 theme_override_styles/fill = SubResource("StyleBoxFlat_84yq7")
-max_value = 2.0
-value = 2.0
+max_value = 1.0
+value = 1.0
 show_percentage = false
 
 [node name="WinUI" type="Control" parent="CanvasLayer"]
@@ -322,7 +322,7 @@ material = ExtResource("24_tbi2u")
 layout_mode = 2
 texture = ExtResource("31_q6qie")
 script = ExtResource("29_jgmrb")
-to_scene = "res://Scenes/Main.tscn"
+to_scene = "res://Scenes/Levels/1.tscn"
 
 [node name="Tutorial" type="Control" parent="CanvasLayer"]
 layout_mode = 3
@@ -374,9 +374,25 @@ mouse_filter = 1
 theme_override_colors/default_color = Color(0, 0, 0, 1)
 theme_override_font_sizes/normal_font_size = 24
 bbcode_enabled = true
-text = "Welcome to Piceross!
+text = "Your goal is to solve the nonograms in the ice!
 
-[img]res://icon.svg[/img]"
+[img]res://Sprites/Tutorial/1.png[/img]
+
+Each number tells you that there is a group of that many consecutive broken tiles somewhere in the
+row/column.
+
+These columns have 0 and 5 broken tiles respectively.
+
+[img]res://Sprites/Tutorial/2.png[/img]
+
+This row has 4, so we know the middle 3 must be broken.
+
+[img]res://Sprites/Tutorial/3.png[/img]
+
+Use this information to solve the puzzle to reveal an image!
+
+[img]res://Sprites/Tutorial/4.png[/img]
+"
 
 [node name="Page2" type="RichTextLabel" parent="CanvasLayer/Tutorial/Pages"]
 layout_mode = 1
@@ -395,7 +411,57 @@ mouse_filter = 1
 theme_override_colors/default_color = Color(0, 0, 0, 1)
 theme_override_font_sizes/normal_font_size = 24
 bbcode_enabled = true
-text = "Different text"
+text = "Use [b]ARROW KEYS[/b] or [b]WASD[/b] to move.
+
+Press [b]SPACE[/b] to jump."
+
+[node name="Page3" type="RichTextLabel" parent="CanvasLayer/Tutorial/Pages"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -230.0
+offset_top = -255.0
+offset_right = 220.0
+offset_bottom = 95.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 1
+theme_override_colors/default_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/normal_font_size = 24
+bbcode_enabled = true
+text = "Use [b]LEFT MOUSE CLICK[/b] to break ice and [b]RIGHT MOUSE CLICK[/b] to mark/unmark ice.
+
+You can only do these to ice tiles near you.
+
+[img]res://Sprites/Tutorial/7.png[/img]
+
+
+
+"
+
+[node name="Page4" type="RichTextLabel" parent="CanvasLayer/Tutorial/Pages"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -230.0
+offset_top = -255.0
+offset_right = 220.0
+offset_bottom = 95.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 1
+theme_override_colors/default_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/normal_font_size = 24
+bbcode_enabled = true
+text = "If you break an ice tile by mistake, press [b]E[/b] or click the [b]SNOWFLAKE[/b] to freeze the tiles near you!
+
+[img]res://Sprites/Tutorial/6.png[/img]"
 
 [node name="ProceedButton" type="TextureRect" parent="CanvasLayer/Tutorial"]
 material = ExtResource("24_tbi2u")

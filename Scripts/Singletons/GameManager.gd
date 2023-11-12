@@ -4,7 +4,7 @@ enum GameState {Menu, Playing, Win, Lose, Loading, Tutorial}
 var current_state : GameState = GameState.Playing
 signal state_changed
 
-var game_progress : int
+var game_progress : int = 1
 var current_level : int
 
 # Called when the node enters the scene tree for the first time.

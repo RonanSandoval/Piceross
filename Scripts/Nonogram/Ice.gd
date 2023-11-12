@@ -48,6 +48,7 @@ func break_ice():
 		$IceCollision.call_deferred("set_disabled", true)
 		destroyed = true
 		MusicManager.play_sound_pitched("break")
+		$GPUParticles3D.emitting = true
 
 func unmark():
 	get_parent().get_parent().unmark_slot(my_x, my_y)
@@ -56,6 +57,7 @@ func unmark():
 
 func on_freeze():
 	if in_range and destroyed:
+		$GPUParticles3D.emitting = true
 		destroyed = false
 		get_parent().get_parent().unbreak_slot(my_x, my_y)
 		$IceCollision.call_deferred("set_disabled", false)

@@ -213,6 +213,24 @@ layout_mode = 2
 texture = ExtResource("25_7l2he")
 expand_mode = 2
 
+[node name="Life6" type="TextureRect" parent="CanvasLayer/GameUI/Lives"]
+material = ExtResource("24_oamxj")
+layout_mode = 2
+texture = ExtResource("25_7l2he")
+expand_mode = 2
+
+[node name="Life7" type="TextureRect" parent="CanvasLayer/GameUI/Lives"]
+material = ExtResource("24_oamxj")
+layout_mode = 2
+texture = ExtResource("25_7l2he")
+expand_mode = 2
+
+[node name="Life8" type="TextureRect" parent="CanvasLayer/GameUI/Lives"]
+material = ExtResource("24_oamxj")
+layout_mode = 2
+texture = ExtResource("25_7l2he")
+expand_mode = 2
+
 [node name="Freezeray" type="TextureRect" parent="CanvasLayer/GameUI"]
 material = ExtResource("24_oamxj")
 layout_mode = 1
@@ -240,8 +258,8 @@ offset_bottom = 151.0
 rotation = -1.5708
 theme_override_styles/background = SubResource("StyleBoxFlat_jlkv1")
 theme_override_styles/fill = SubResource("StyleBoxFlat_84yq7")
-max_value = 2.0
-value = 2.0
+max_value = 1.0
+value = 1.0
 show_percentage = false
 
 [node name="WinUI" type="Control" parent="CanvasLayer"]
@@ -323,7 +341,7 @@ material = ExtResource("24_oamxj")
 layout_mode = 2
 texture = ExtResource("31_ts1ka")
 script = ExtResource("29_3oer4")
-to_scene = "res://Scenes/Main.tscn"
+to_scene = "res://Scenes/Levels/5.tscn"
 
 [node name="Tutorial" type="Control" parent="CanvasLayer"]
 layout_mode = 3
@@ -375,28 +393,7 @@ mouse_filter = 1
 theme_override_colors/default_color = Color(0, 0, 0, 1)
 theme_override_font_sizes/normal_font_size = 24
 bbcode_enabled = true
-text = "Welcome to Piceross!
-
-[img]res://icon.svg[/img]"
-
-[node name="Page2" type="RichTextLabel" parent="CanvasLayer/Tutorial/Pages"]
-layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -230.0
-offset_top = -255.0
-offset_right = 220.0
-offset_bottom = 95.0
-grow_horizontal = 2
-grow_vertical = 2
-mouse_filter = 1
-theme_override_colors/default_color = Color(0, 0, 0, 1)
-theme_override_font_sizes/normal_font_size = 24
-bbcode_enabled = true
-text = "Different text"
+text = "Sometimes, ice will already be melted. You may need to fill them in to solve the puzzle!"
 
 [node name="ProceedButton" type="TextureRect" parent="CanvasLayer/Tutorial"]
 material = ExtResource("24_oamxj")

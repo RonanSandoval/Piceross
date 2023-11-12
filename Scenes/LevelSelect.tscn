@@ -61,70 +61,90 @@ material = ExtResource("2_appxm")
 layout_mode = 2
 texture = ExtResource("2_hmir1")
 script = ExtResource("2_v6r6r")
-to_scene = "res://Scenes/Main.tscn"
+to_scene = "res://Scenes/Levels/1.tscn"
+progress_dependent = true
+progress_num = 1
 
 [node name="Level2" type="TextureRect" parent="CanvasLayer/Levels"]
 material = ExtResource("2_appxm")
 layout_mode = 2
 texture = ExtResource("4_mpkdm")
 script = ExtResource("2_v6r6r")
-to_scene = "res://Scenes/Main.tscn"
+to_scene = "res://Scenes/Levels/2.tscn"
+progress_dependent = true
+progress_num = 2
 
 [node name="Level3" type="TextureRect" parent="CanvasLayer/Levels"]
 material = ExtResource("2_appxm")
 layout_mode = 2
 texture = ExtResource("5_xhdgq")
 script = ExtResource("2_v6r6r")
-to_scene = "res://Scenes/Main.tscn"
+to_scene = "res://Scenes/Levels/3.tscn"
+progress_dependent = true
+progress_num = 3
 
 [node name="Level4" type="TextureRect" parent="CanvasLayer/Levels"]
 material = ExtResource("2_appxm")
 layout_mode = 2
 texture = ExtResource("6_gdqnj")
 script = ExtResource("2_v6r6r")
-to_scene = "res://Scenes/Main.tscn"
+to_scene = "res://Scenes/Levels/4.tscn"
+progress_dependent = true
+progress_num = 4
 
 [node name="Level5" type="TextureRect" parent="CanvasLayer/Levels"]
 material = ExtResource("2_appxm")
 layout_mode = 2
 texture = ExtResource("7_7lsp0")
 script = ExtResource("2_v6r6r")
-to_scene = "res://Scenes/Main.tscn"
+to_scene = "res://Scenes/Levels/5.tscn"
+progress_dependent = true
+progress_num = 5
 
 [node name="Level6" type="TextureRect" parent="CanvasLayer/Levels"]
 material = ExtResource("2_appxm")
 layout_mode = 2
 texture = ExtResource("8_ikiuc")
 script = ExtResource("2_v6r6r")
-to_scene = "res://Scenes/Main.tscn"
+to_scene = "res://Scenes/Levels/6.tscn"
+progress_dependent = true
+progress_num = 6
 
 [node name="Level7" type="TextureRect" parent="CanvasLayer/Levels"]
 material = ExtResource("2_appxm")
 layout_mode = 2
 texture = ExtResource("9_wnbnj")
 script = ExtResource("2_v6r6r")
-to_scene = "res://Scenes/Main.tscn"
+to_scene = "res://Scenes/Levels/7.tscn"
+progress_dependent = true
+progress_num = 7
 
 [node name="Level8" type="TextureRect" parent="CanvasLayer/Levels"]
 material = ExtResource("2_appxm")
 layout_mode = 2
 texture = ExtResource("10_qofl4")
 script = ExtResource("2_v6r6r")
-to_scene = "res://Scenes/Main.tscn"
+to_scene = "res://Scenes/Levels/8.tscn"
+progress_dependent = true
+progress_num = 8
 
 [node name="Level9" type="TextureRect" parent="CanvasLayer/Levels"]
 material = ExtResource("2_appxm")
 layout_mode = 2
 texture = ExtResource("11_6atv8")
 script = ExtResource("2_v6r6r")
-to_scene = "res://Scenes/Main.tscn"
+to_scene = "res://Scenes/Levels/9.tscn"
+progress_dependent = true
+progress_num = 9
 
 [node name="Level10" type="TextureRect" parent="CanvasLayer/Levels"]
 material = ExtResource("2_appxm")
 layout_mode = 2
 texture = ExtResource("12_68t6c")
 script = ExtResource("2_v6r6r")
-to_scene = "res://Scenes/Main.tscn"
+to_scene = "res://Scenes/Levels/10.tscn"
+progress_dependent = true
+progress_num = 10
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]
 mesh = SubResource("PlaneMesh_avcvu")

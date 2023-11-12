@@ -112,6 +112,7 @@ height = 0.03
 
 [node name="Nonogram" type="Node" parent="."]
 script = ExtResource("1_mvrnd")
+puzzle_index = 10
 NONOGRAM_HEIGHT = 5
 NONOGRAM_WIDTH = 5
 
