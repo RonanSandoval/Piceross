@@ -1,49 +1,49 @@
-[gd_scene load_steps=48 format=3 uid="uid://cjdjohub1xatm"]
+[gd_scene load_steps=48 format=3 uid="uid://dkxfgx5dfcvu0"]
 
-[ext_resource type="Script" path="res://Scripts/Nonogram/Nonogram.gd" id="1_mvrnd"]
-[ext_resource type="Script" path="res://Scripts/Nonogram/IceSpawner.gd" id="2_mttt7"]
-[ext_resource type="Script" path="res://Scripts/Nonogram/HintSpawner.gd" id="3_ldy71"]
-[ext_resource type="Texture2D" uid="uid://b165583d622e2" path="res://Sprites/Numbers/0.png" id="5_g0xow"]
-[ext_resource type="Script" path="res://Scripts/Player.gd" id="5_j1ucf"]
-[ext_resource type="Texture2D" uid="uid://cbp36fb1pcyoo" path="res://Sprites/Numbers/1.png" id="6_c3mlh"]
-[ext_resource type="Texture2D" uid="uid://cxtlh082in2nq" path="res://Sprites/Numbers/2.png" id="7_7wbns"]
-[ext_resource type="Script" path="res://Scripts/PlayerRange.gd" id="7_nly7s"]
-[ext_resource type="Texture2D" uid="uid://ccilhlw6470my" path="res://Sprites/Numbers/9.png" id="8_8svtn"]
-[ext_resource type="Texture2D" uid="uid://dd7si6yi34k3x" path="res://Sprites/Numbers/3.png" id="8_hk2kh"]
-[ext_resource type="Texture2D" uid="uid://uak6t7wkituo" path="res://Sprites/Numbers/4.png" id="9_d3igq"]
-[ext_resource type="Texture2D" uid="uid://cx2igmgoj1g5y" path="res://Sprites/Numbers/5.png" id="10_7vlo4"]
-[ext_resource type="Texture2D" uid="uid://cmt3w6aosh41t" path="res://Sprites/Numbers/6.png" id="11_ai2e4"]
-[ext_resource type="Texture2D" uid="uid://biy2i1uygt076" path="res://Sprites/Numbers/7.png" id="12_dpw67"]
-[ext_resource type="Texture2D" uid="uid://dlx60sgic260i" path="res://Sprites/Numbers/8.png" id="13_itvdc"]
-[ext_resource type="Script" path="res://Scripts/UI/Camera.gd" id="15_60ukw"]
-[ext_resource type="Texture2D" uid="uid://bcwdqvs00dvsg" path="res://Sprites/Numbers/10.png" id="15_fb1jt"]
-[ext_resource type="Material" uid="uid://b5riljx6xlo5u" path="res://Shaders/Wiggler.material" id="17_gdse0"]
-[ext_resource type="Texture2D" uid="uid://cxuub6380rlkd" path="res://Sprites/player.png" id="17_hle3c"]
-[ext_resource type="Texture2D" uid="uid://cdp6ink0vg4lt" path="res://Sprites/player2.png" id="17_umhqh"]
-[ext_resource type="Script" path="res://Scripts/UI/Lives.gd" id="19_htdvy"]
-[ext_resource type="Script" path="res://Scripts/UI/Freezeray.gd" id="20_4xr6i"]
-[ext_resource type="PackedScene" uid="uid://diss8fgqx71ao" path="res://Scenes/Prefabs/shadow.tscn" id="20_ltfgk"]
-[ext_resource type="Script" path="res://Scripts/UI/ConditionalUI.gd" id="20_xnehs"]
-[ext_resource type="Shader" path="res://Shaders/water.gdshader" id="23_blv27"]
-[ext_resource type="Script" path="res://Scripts/UI/SceneChangeButton.gd" id="23_v0n8p"]
-[ext_resource type="Texture2D" uid="uid://b8quwtif2cb5x" path="res://Sprites/heart.png" id="24_bnuu0"]
-[ext_resource type="Script" path="res://Scripts/UI/TutorialButton.gd" id="24_f58q7"]
-[ext_resource type="Script" path="res://Scripts/UI/TutorialController.gd" id="25_qk1uq"]
-[ext_resource type="Texture2D" uid="uid://cqr3vyooo3qbx" path="res://Sprites/freeze.png" id="25_xiq75"]
-[ext_resource type="PackedScene" uid="uid://d3pe13e6t8y47" path="res://Scenes/Prefabs/safetyblock.tscn" id="27_7uh7y"]
-[ext_resource type="Texture2D" uid="uid://dhnvmmyhyruu7" path="res://Sprites/UI/menu.png" id="30_db6mt"]
-[ext_resource type="Texture2D" uid="uid://x4iyx2yhtc5g" path="res://Sprites/UI/restart.png" id="31_mbcg7"]
-[ext_resource type="Texture2D" uid="uid://d4i7q85ca63qy" path="res://Sprites/UI/next.png" id="31_t3y00"]
-[ext_resource type="Texture2D" uid="uid://c3qnqgijsrh16" path="res://Sprites/UI/tutorial_bg.png" id="33_ejq26"]
+[ext_resource type="Script" path="res://Scripts/Nonogram/Nonogram.gd" id="1_g1cg7"]
+[ext_resource type="Script" path="res://Scripts/Nonogram/IceSpawner.gd" id="2_rvka0"]
+[ext_resource type="Script" path="res://Scripts/Nonogram/HintSpawner.gd" id="3_p1n1t"]
+[ext_resource type="Texture2D" uid="uid://b165583d622e2" path="res://Sprites/Numbers/0.png" id="4_8mhwc"]
+[ext_resource type="Texture2D" uid="uid://cbp36fb1pcyoo" path="res://Sprites/Numbers/1.png" id="5_ea035"]
+[ext_resource type="Texture2D" uid="uid://cxtlh082in2nq" path="res://Sprites/Numbers/2.png" id="6_fxyrq"]
+[ext_resource type="Texture2D" uid="uid://dd7si6yi34k3x" path="res://Sprites/Numbers/3.png" id="7_5mdhd"]
+[ext_resource type="Texture2D" uid="uid://uak6t7wkituo" path="res://Sprites/Numbers/4.png" id="8_yp01g"]
+[ext_resource type="Texture2D" uid="uid://cx2igmgoj1g5y" path="res://Sprites/Numbers/5.png" id="9_xgi3n"]
+[ext_resource type="Texture2D" uid="uid://cmt3w6aosh41t" path="res://Sprites/Numbers/6.png" id="10_vq3ac"]
+[ext_resource type="Texture2D" uid="uid://biy2i1uygt076" path="res://Sprites/Numbers/7.png" id="11_23w0j"]
+[ext_resource type="Texture2D" uid="uid://dlx60sgic260i" path="res://Sprites/Numbers/8.png" id="12_682ay"]
+[ext_resource type="Texture2D" uid="uid://ccilhlw6470my" path="res://Sprites/Numbers/9.png" id="13_y4lq7"]
+[ext_resource type="Texture2D" uid="uid://bcwdqvs00dvsg" path="res://Sprites/Numbers/10.png" id="14_v2tml"]
+[ext_resource type="Script" path="res://Scripts/UI/Camera.gd" id="15_6o5m8"]
+[ext_resource type="Script" path="res://Scripts/Player.gd" id="16_nt5a4"]
+[ext_resource type="Texture2D" uid="uid://cdp6ink0vg4lt" path="res://Sprites/player2.png" id="17_ww6o2"]
+[ext_resource type="Texture2D" uid="uid://cxuub6380rlkd" path="res://Sprites/player.png" id="18_32l23"]
+[ext_resource type="Script" path="res://Scripts/PlayerRange.gd" id="19_ky75w"]
+[ext_resource type="PackedScene" uid="uid://d3pe13e6t8y47" path="res://Scenes/Prefabs/safetyblock.tscn" id="20_j8u2l"]
+[ext_resource type="PackedScene" uid="uid://diss8fgqx71ao" path="res://Scenes/Prefabs/shadow.tscn" id="21_3r7pn"]
+[ext_resource type="Script" path="res://Scripts/UI/ConditionalUI.gd" id="22_585rj"]
+[ext_resource type="Script" path="res://Scripts/UI/Lives.gd" id="23_jl7rp"]
+[ext_resource type="Material" uid="uid://b5riljx6xlo5u" path="res://Shaders/Wiggler.material" id="24_oamxj"]
+[ext_resource type="Texture2D" uid="uid://b8quwtif2cb5x" path="res://Sprites/heart.png" id="25_7l2he"]
+[ext_resource type="Texture2D" uid="uid://cqr3vyooo3qbx" path="res://Sprites/freeze.png" id="26_e8cwp"]
+[ext_resource type="Script" path="res://Scripts/UI/Freezeray.gd" id="27_ssj6p"]
+[ext_resource type="Texture2D" uid="uid://dhnvmmyhyruu7" path="res://Sprites/UI/menu.png" id="28_hmxmw"]
+[ext_resource type="Script" path="res://Scripts/UI/SceneChangeButton.gd" id="29_3oer4"]
+[ext_resource type="Texture2D" uid="uid://d4i7q85ca63qy" path="res://Sprites/UI/next.png" id="30_yehld"]
+[ext_resource type="Texture2D" uid="uid://x4iyx2yhtc5g" path="res://Sprites/UI/restart.png" id="31_ts1ka"]
+[ext_resource type="Script" path="res://Scripts/UI/TutorialController.gd" id="32_alcy4"]
+[ext_resource type="Texture2D" uid="uid://c3qnqgijsrh16" path="res://Sprites/UI/tutorial_bg.png" id="33_sb053"]
+[ext_resource type="Script" path="res://Scripts/UI/TutorialButton.gd" id="34_vuc4j"]
+[ext_resource type="Shader" path="res://Shaders/water.gdshader" id="35_tvd0y"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_0jtxs"]
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("17_umhqh")
+"texture": ExtResource("17_ww6o2")
 }, {
 "duration": 1.0,
-"texture": ExtResource("17_hle3c")
+"texture": ExtResource("18_32l23")
 }],
 "loop": true,
 "name": &"default",
@@ -64,7 +64,7 @@ bg_color = Color(0.0627451, 0.231373, 0.4, 1)
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_jgrte"]
 render_priority = 0
-shader = ExtResource("23_blv27")
+shader = ExtResource("35_tvd0y")
 shader_parameter/OCTAVE = 6
 shader_parameter/mulscale = 7.0
 shader_parameter/height = 0.6
@@ -111,26 +111,27 @@ height = 0.03
 [node name="Node3D" type="Node3D"]
 
 [node name="Nonogram" type="Node" parent="."]
-script = ExtResource("1_mvrnd")
-NONOGRAM_HEIGHT = 5
-NONOGRAM_WIDTH = 5
+script = ExtResource("1_g1cg7")
+puzzle_index = 4
+NONOGRAM_HEIGHT = 10
+NONOGRAM_WIDTH = 10
 
 [node name="IceSpawner" type="Node" parent="Nonogram"]
-script = ExtResource("2_mttt7")
+script = ExtResource("2_rvka0")
 
 [node name="Hints" type="Node" parent="Nonogram"]
-script = ExtResource("3_ldy71")
-hint_sprites = Array[Texture]([ExtResource("5_g0xow"), ExtResource("6_c3mlh"), ExtResource("7_7wbns"), ExtResource("8_hk2kh"), ExtResource("9_d3igq"), ExtResource("10_7vlo4"), ExtResource("11_ai2e4"), ExtResource("12_dpw67"), ExtResource("13_itvdc"), ExtResource("8_8svtn"), ExtResource("15_fb1jt")])
+script = ExtResource("3_p1n1t")
+hint_sprites = Array[Texture]([ExtResource("4_8mhwc"), ExtResource("5_ea035"), ExtResource("6_fxyrq"), ExtResource("7_5mdhd"), ExtResource("8_yp01g"), ExtResource("9_xgi3n"), ExtResource("10_vq3ac"), ExtResource("11_23w0j"), ExtResource("12_682ay"), ExtResource("13_y4lq7"), ExtResource("14_v2tml")])
 
 [node name="Camera3D" type="Camera3D" parent="." node_paths=PackedStringArray("player_node")]
 transform = Transform3D(1, 0, 0, 0, 0.34202, 0.939693, 0, -0.939693, 0.34202, 5, 4, 12)
-script = ExtResource("15_60ukw")
+script = ExtResource("15_6o5m8")
 player_node = NodePath("../Player")
 
 [node name="Player" type="CharacterBody3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
 input_ray_pickable = false
-script = ExtResource("5_j1ucf")
+script = ExtResource("16_nt5a4")
 
 [node name="PlayerSprite" type="AnimatedSprite3D" parent="Player"]
 transform = Transform3D(0.8, 0, 0, 0, 0.4, 0.69282, 0, -0.69282, 0.4, 0, 0, -0.2)
@@ -144,14 +145,14 @@ shape = SubResource("BoxShape3D_6d0ho")
 [node name="Range" type="Area3D" parent="Player"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.1, 0)
 input_ray_pickable = false
-script = ExtResource("7_nly7s")
+script = ExtResource("19_ky75w")
 
 [node name="RangeBox" type="CollisionShape3D" parent="Player/Range"]
 shape = SubResource("BoxShape3D_8jdp3")
 
-[node name="SafetyBlock" parent="." instance=ExtResource("27_7uh7y")]
+[node name="SafetyBlock" parent="." instance=ExtResource("20_j8u2l")]
 
-[node name="Shadow" parent="." node_paths=PackedStringArray("follow_node") instance=ExtResource("20_ltfgk")]
+[node name="Shadow" parent="." node_paths=PackedStringArray("follow_node") instance=ExtResource("21_3r7pn")]
 follow_node = NodePath("../Player")
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
@@ -167,7 +168,7 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 1
-script = ExtResource("20_xnehs")
+script = ExtResource("22_585rj")
 my_state = 1
 
 [node name="Lives" type="HBoxContainer" parent="CanvasLayer/GameUI"]
@@ -180,40 +181,40 @@ offset_top = -75.0
 offset_right = 346.0
 offset_bottom = -11.0
 grow_vertical = 0
-script = ExtResource("19_htdvy")
+script = ExtResource("23_jl7rp")
 
 [node name="Life" type="TextureRect" parent="CanvasLayer/GameUI/Lives"]
-material = ExtResource("17_gdse0")
+material = ExtResource("24_oamxj")
 layout_mode = 2
-texture = ExtResource("24_bnuu0")
+texture = ExtResource("25_7l2he")
 expand_mode = 2
 
 [node name="Life2" type="TextureRect" parent="CanvasLayer/GameUI/Lives"]
-material = ExtResource("17_gdse0")
+material = ExtResource("24_oamxj")
 layout_mode = 2
-texture = ExtResource("24_bnuu0")
+texture = ExtResource("25_7l2he")
 expand_mode = 2
 
 [node name="Life3" type="TextureRect" parent="CanvasLayer/GameUI/Lives"]
-material = ExtResource("17_gdse0")
+material = ExtResource("24_oamxj")
 layout_mode = 2
-texture = ExtResource("24_bnuu0")
+texture = ExtResource("25_7l2he")
 expand_mode = 2
 
 [node name="Life4" type="TextureRect" parent="CanvasLayer/GameUI/Lives"]
-material = ExtResource("17_gdse0")
+material = ExtResource("24_oamxj")
 layout_mode = 2
-texture = ExtResource("24_bnuu0")
+texture = ExtResource("25_7l2he")
 expand_mode = 2
 
 [node name="Life5" type="TextureRect" parent="CanvasLayer/GameUI/Lives"]
-material = ExtResource("17_gdse0")
+material = ExtResource("24_oamxj")
 layout_mode = 2
-texture = ExtResource("24_bnuu0")
+texture = ExtResource("25_7l2he")
 expand_mode = 2
 
 [node name="Freezeray" type="TextureRect" parent="CanvasLayer/GameUI"]
-material = ExtResource("17_gdse0")
+material = ExtResource("24_oamxj")
 layout_mode = 1
 anchors_preset = 3
 anchor_left = 1.0
@@ -226,9 +227,9 @@ offset_right = -19.0
 offset_bottom = -18.0
 grow_horizontal = 0
 grow_vertical = 0
-texture = ExtResource("25_xiq75")
+texture = ExtResource("26_e8cwp")
 expand_mode = 1
-script = ExtResource("20_4xr6i")
+script = ExtResource("27_ssj6p")
 
 [node name="ProgressBar" type="ProgressBar" parent="CanvasLayer/GameUI/Freezeray"]
 layout_mode = 0
@@ -251,7 +252,7 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 1
-script = ExtResource("20_xnehs")
+script = ExtResource("22_585rj")
 my_state = 2
 
 [node name="HBoxContainer" type="HBoxContainer" parent="CanvasLayer/WinUI"]
@@ -270,18 +271,18 @@ grow_vertical = 0
 theme_override_constants/separation = 100
 
 [node name="LevelSelect" type="TextureRect" parent="CanvasLayer/WinUI/HBoxContainer"]
-material = ExtResource("17_gdse0")
+material = ExtResource("24_oamxj")
 layout_mode = 2
-texture = ExtResource("30_db6mt")
-script = ExtResource("23_v0n8p")
+texture = ExtResource("28_hmxmw")
+script = ExtResource("29_3oer4")
 to_scene = "res://Scenes/LevelSelect.tscn"
 
 [node name="NextLevel" type="TextureRect" parent="CanvasLayer/WinUI/HBoxContainer"]
-material = ExtResource("17_gdse0")
+material = ExtResource("24_oamxj")
 layout_mode = 2
-texture = ExtResource("31_t3y00")
-script = ExtResource("23_v0n8p")
-to_scene = "res://Scenes/Main.tscn"
+texture = ExtResource("30_yehld")
+script = ExtResource("29_3oer4")
+to_scene = "res://Scenes/Levels/6.tscn"
 
 [node name="LoseUI" type="Control" parent="CanvasLayer"]
 visible = false
@@ -292,7 +293,7 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 1
-script = ExtResource("20_xnehs")
+script = ExtResource("22_585rj")
 my_state = 3
 
 [node name="HBoxContainer" type="HBoxContainer" parent="CanvasLayer/LoseUI"]
@@ -311,17 +312,17 @@ grow_vertical = 2
 theme_override_constants/separation = 100
 
 [node name="LevelSelect" type="TextureRect" parent="CanvasLayer/LoseUI/HBoxContainer"]
-material = ExtResource("17_gdse0")
+material = ExtResource("24_oamxj")
 layout_mode = 2
-texture = ExtResource("30_db6mt")
-script = ExtResource("23_v0n8p")
+texture = ExtResource("28_hmxmw")
+script = ExtResource("29_3oer4")
 to_scene = "res://Scenes/LevelSelect.tscn"
 
 [node name="RestartLevel" type="TextureRect" parent="CanvasLayer/LoseUI/HBoxContainer"]
-material = ExtResource("17_gdse0")
+material = ExtResource("24_oamxj")
 layout_mode = 2
-texture = ExtResource("31_mbcg7")
-script = ExtResource("23_v0n8p")
+texture = ExtResource("31_ts1ka")
+script = ExtResource("29_3oer4")
 to_scene = "res://Scenes/Main.tscn"
 
 [node name="Tutorial" type="Control" parent="CanvasLayer"]
@@ -332,7 +333,7 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 1
-script = ExtResource("25_qk1uq")
+script = ExtResource("32_alcy4")
 
 [node name="BG" type="TextureRect" parent="CanvasLayer/Tutorial"]
 layout_mode = 1
@@ -347,7 +348,7 @@ offset_right = 283.5
 offset_bottom = 152.0
 grow_horizontal = 2
 grow_vertical = 2
-texture = ExtResource("33_ejq26")
+texture = ExtResource("33_sb053")
 
 [node name="Pages" type="Control" parent="CanvasLayer/Tutorial"]
 layout_mode = 1
@@ -398,7 +399,7 @@ bbcode_enabled = true
 text = "Different text"
 
 [node name="ProceedButton" type="TextureRect" parent="CanvasLayer/Tutorial"]
-material = ExtResource("17_gdse0")
+material = ExtResource("24_oamxj")
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -411,8 +412,8 @@ offset_right = 64.0
 offset_bottom = 218.0
 grow_horizontal = 2
 grow_vertical = 2
-texture = ExtResource("31_t3y00")
-script = ExtResource("24_f58q7")
+texture = ExtResource("30_yehld")
+script = ExtResource("34_vuc4j")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]
 mesh = SubResource("PlaneMesh_sr2eo")

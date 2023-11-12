@@ -19,6 +19,7 @@ func _ready():
 func prepare_nonogram():
 	reset_nonogram()
 	read_puzzle_json()
+	read_starts_json()
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
@@ -86,6 +87,13 @@ func read_puzzle_json() -> void:
 	var json = JSON.new()
 	var finish = json.parse_string(content)
 	answer = finish["nonograms"][puzzle_index]
+
+func read_starts_json() -> void:
+	var file = FileAccess.open("res://Resources/starts.json", FileAccess.READ)
+	var content = file.get_as_text()
+	var json = JSON.new()
+	var finish = json.parse_string(content)
+	nonogram = finish["starts"][puzzle_index]
 
 func check_puzzle():
 	for y in range(NONOGRAM_HEIGHT):

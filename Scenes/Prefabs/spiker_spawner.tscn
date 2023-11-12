@@ -1,0 +1,7 @@
+[gd_scene load_steps=2 format=3 uid="uid://dksdjpon2v8sd"]
+
+[ext_resource type="Script" path="res://Scripts/Enemy/SpikerSpawner.gd" id="1_v1bre"]
+
+[node name="SpikerSpawner" type="Node"]
+script = ExtResource("1_v1bre")
+WAIT_TIME = 4.0

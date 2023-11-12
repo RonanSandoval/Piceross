@@ -1,0 +1,37 @@
+[gd_scene load_steps=6 format=3 uid="uid://boxiycea134g5"]
+
+[ext_resource type="Script" path="res://Scripts/Enemy/Breaker.gd" id="1_kjx3m"]
+[ext_resource type="Texture2D" uid="uid://c3at5qy06jtie" path="res://Sprites/Enemies/breaker1.png" id="2_6ec24"]
+[ext_resource type="Texture2D" uid="uid://dkf5ntiqdty15" path="res://Sprites/Enemies/breaker2.png" id="3_h637k"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_75iwh"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_6ec24")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_h637k")
+}],
+"loop": true,
+"name": &"default",
+"speed": 3.0
+}]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_i8bvt"]
+size = Vector3(0.5, 1, 0.5)
+
+[node name="Breaker" type="Area3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.092, 1, 0)
+input_ray_pickable = false
+script = ExtResource("1_kjx3m")
+MOVE_TIME = 3.0
+WAIT_TIME = 8.0
+
+[node name="Sprite3D" type="AnimatedSprite3D" parent="."]
+transform = Transform3D(0.8, 0, 0, 0, 0.4, 0.69282, 0, -0.69282, 0.4, 0, 0, -0.2)
+sprite_frames = SubResource("SpriteFrames_75iwh")
+autoplay = "default"
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+shape = SubResource("BoxShape3D_i8bvt")

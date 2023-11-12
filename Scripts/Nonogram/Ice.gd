@@ -18,6 +18,11 @@ var my_x : int
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	get_parent().get_parent().get_parent().find_child("Freezeray").connect("freeze", on_freeze)
+	await get_tree().create_timer(0.1).timeout
+	if get_parent().get_parent().get_slot(my_y, my_x) == 1:
+		$IceCollision.call_deferred("set_disabled", true)
+		destroyed = true
+		$IceShape.material_override = ice_destroyed_material
 
 
 func _on_input_event(camera, event, position, normal, shape_idx):
