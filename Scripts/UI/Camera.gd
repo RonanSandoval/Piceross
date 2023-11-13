@@ -21,11 +21,14 @@ func _ready():
 func _process(delta):
 	osscilate += delta
 	
+	
+	
 	if camera_mode == 0:
 		var destination = player_node.position.lerp(CAMERA_CENTER, 0.2)
 		position = Vector3( lerp(position.x, destination.x, SMOOTHING),
-							6 + (cos(osscilate) / 20),
+							lerp(position.y,6 + (cos(osscilate) / 20), SMOOTHING),
 							lerp(position.z, destination.z + 2, SMOOTHING))
+		rotation_degrees.x = lerp(rotation_degrees.x, -60.0, SMOOTHING)
 	elif camera_mode == 1:
 		position = Vector3( lerp(position.x, CAMERA_CENTER.x, SMOOTHING),
 							lerp(position.y, 15 + (cos(osscilate) / 20), SMOOTHING),
@@ -35,3 +38,10 @@ func _process(delta):
 func show_top_down():
 	if GameManager.current_state == GameManager.GameState.Win:
 		camera_mode = 1
+
+func _input(event):
+	if GameManager.current_state == GameManager.GameState.Playing:
+		if  Input.is_key_pressed(KEY_SHIFT):
+			camera_mode = 1
+		else:
+			camera_mode = 0

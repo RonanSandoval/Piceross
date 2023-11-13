@@ -9,6 +9,7 @@ var lives : int = 8
 signal life_lost(lives_left)
 
 var dead : bool = false
+var paused : bool = false
 
 const SPEED = 5.0
 const JUMP_VELOCITY = 4.5
@@ -27,7 +28,7 @@ func _physics_process(delta):
 			velocity.y -= gravity * delta
 
 		# Handle Jump.
-		if Input.is_action_just_pressed("ui_accept") and is_on_floor():
+		if Input.is_action_just_pressed("ui_accept") and is_on_floor() and not paused:
 			MusicManager.play_sound_pitched("jump")
 			velocity.y = JUMP_VELOCITY
 
@@ -35,7 +36,7 @@ func _physics_process(delta):
 		# As good practice, you should replace UI actions with custom gameplay actions.
 		var input_dir = Input.get_vector("move_left", "move_right", "move_up", "move_down")
 		var direction = (transform.basis * Vector3(input_dir.x, 0, input_dir.y)).normalized()
-		if direction:
+		if direction and not paused:
 			velocity.x = direction.x * SPEED
 			velocity.z = direction.z * SPEED
 			if direction.x != 0:
@@ -66,4 +67,10 @@ func spawn():
 	position = Vector3(game_width / 2 * 1.1, 1, game_height * 1.1)
 	dead = false
 	visible = true
-	
+
+func _input(event):
+	if GameManager.current_state == GameManager.GameState.Playing:
+		if  Input.is_key_pressed(KEY_SHIFT):
+			paused = true
+		else:
+			paused = false

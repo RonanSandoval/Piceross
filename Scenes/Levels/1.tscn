@@ -394,9 +394,26 @@ theme_override_font_sizes/normal_font_size = 24
 bbcode_enabled = true
 text = "Your goal is to solve the nonograms in the ice!
 
-[img]res://Sprites/Tutorial/1.png[/img]
+[img]res://Sprites/Tutorial/1.png[/img]"
 
-Each number tells you that there is a group of that many consecutive broken tiles somewhere in the
+[node name="Page5" type="RichTextLabel" parent="CanvasLayer/Tutorial/Pages"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -230.0
+offset_top = -255.0
+offset_right = 220.0
+offset_bottom = 95.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 1
+theme_override_colors/default_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/normal_font_size = 24
+bbcode_enabled = true
+text = "Each number tells you that there is a group of that many consecutive broken tiles somewhere in the
 row/column.
 
 These columns have 0 and 5 broken tiles respectively.
@@ -407,10 +424,29 @@ This row has 4, so we know the middle 3 must be broken.
 
 [img]res://Sprites/Tutorial/3.png[/img]
 
-Use this information to solve the puzzle to reveal an image!
 
-[img]res://Sprites/Tutorial/4.png[/img]
 "
+
+[node name="Page6" type="RichTextLabel" parent="CanvasLayer/Tutorial/Pages"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -230.0
+offset_top = -255.0
+offset_right = 220.0
+offset_bottom = 95.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 1
+theme_override_colors/default_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/normal_font_size = 24
+bbcode_enabled = true
+text = "Use this information to solve the puzzle to reveal an image!
+
+[img]res://Sprites/Tutorial/4.png[/img]"
 
 [node name="Page2" type="RichTextLabel" parent="CanvasLayer/Tutorial/Pages"]
 layout_mode = 1
